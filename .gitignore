@@ -137,3 +137,4 @@ dmypy.json
 Makefile
 runall.sh
 **.virtual_documents
+.virtual_documents/
