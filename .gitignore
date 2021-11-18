@@ -136,4 +136,4 @@ dmypy.json
 .Rhistory
 Makefile
 runall.sh
-.virtual_documents
+**.virtual_documents
