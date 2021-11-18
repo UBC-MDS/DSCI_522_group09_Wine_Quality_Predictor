@@ -1,1 +1,1 @@
-# UBC-MDS-2021_522_group09_placeholder
+# DSCI_522_group09_Wine_Quality_Predictor
