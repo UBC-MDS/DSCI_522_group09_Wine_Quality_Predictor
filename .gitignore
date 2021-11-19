@@ -138,3 +138,6 @@ Makefile
 runall.sh
 **.virtual_documents
 .virtual_documents/
+
+#Data
+/data/raw
