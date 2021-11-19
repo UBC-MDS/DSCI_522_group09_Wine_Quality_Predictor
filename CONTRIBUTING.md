@@ -1,6 +1,10 @@
 # Contributing to the ... project
 
+<<<<<<< Updated upstream
 This outlines how to propose a change to the ... project. 
+=======
+This outlines how to propose a change to the Wine Quality Predictor project.
+>>>>>>> Stashed changes
 
 ### Fixing typos
 
