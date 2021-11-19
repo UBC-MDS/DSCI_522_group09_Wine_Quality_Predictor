@@ -28,6 +28,12 @@ If any participant violates this code of conduct and engages in any unacceptable
 
 If you believe someone is violating this code of conduct or have other concerns, please report by contacting one of the project maintainers at wanying.ye2020@gmail.com. The project maintainer will review and respond in a way that deems appropriate to the circumstances. Messages sent to this email address will not be revealed to anyone except for the project maintainer team to protect the confidentiality of the report of an incident. 
 
+We will handle code of conduct and breach of contract in a similar 3 step process:
+The first step is notice in slack or via email that explains the violation of the team contract and a reminder of the team contract conditions.
+The second step is an in-person (or at least online synchronous) meeting to discuss the behaviour and something is required by the offending team member acknowledging the concern and indicating it will be resolved..
+The third step is to ban a contributor from this project.
+
+
 ## Attribution
 
 This code of conduct is adapted from [Contributor Covenant](https://www.contributor-covenant.org/), version 1.4, available at https://www.contributor-covenant.org/version/1/4/code-of-conduct/
