@@ -1,6 +1,8 @@
 # Wine_Quality_Predictor
 
+
 - authors: Gabriel Fairbrother, Paniz Fazlali, Luming Yang, Wanying Ye.
+
 
 A data analysis (machine learning) project for MDS DSCI522 (Data Science Workflows) from Group 09.
 
@@ -22,3 +24,14 @@ Finally, we will rank models by their performance and select the best model with
 
 
 ## Usage
+To replicate the analysis, clone this GitHub repository, install the dependencies listed below, and run the following commands at the command line/terminal from the root directory of this project:
+```
+python src/download_data.py --url=""https://archive.ics.uci.edu/ml/machine-learning-databases/wine-quality/winequality-red.csv" --out_file="data/raw/winequality-red.csv"
+python src/download_data.py --url=""https://archive.ics.uci.edu/ml/machine-learning-databases/wine-quality/winequality-white.csv" --out_file="data/raw/winequality-white.csv"
+jupyter lab EDA.ipynb
+  
+```  
+##Dependencies
+  We will collect a list of dependencies as we move through the project to publish here.
+##References
+  
