@@ -1,5 +1,5 @@
-# author: Luming Yang
-# date: 2021-11-18
+# author: Gabe Fairbrother, Luming Yang
+# date: 2021-11-19
 
 """This script automatically downloads both of the wine quality data csvs from the UCI database to a local filepath as a csv.
 Usage: src/download_data.py
