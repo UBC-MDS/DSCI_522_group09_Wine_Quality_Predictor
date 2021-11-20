@@ -34,10 +34,10 @@ python src/download_data.py --url="https://archive.ics.uci.edu/ml/machine-learni
 jupyter lab EDA.ipynb
   
 ```  
-##Dependencies
+## Dependencies
   We will collect a list of dependencies as we move through the project to publish here.
 
-##References
+## References
 Wine Quality 
 Paulo Cortez, A. Cerdeira, F. Almeida, T. Matos, J. Reis
 http://www3.dsi.uminho.pt/pcortez/wine5.pdf
