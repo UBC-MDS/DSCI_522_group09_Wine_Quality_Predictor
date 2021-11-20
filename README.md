@@ -20,7 +20,7 @@ ML Model candidates include: kNN, SVM, logistic regression, decision tree. These
 
 We plan to merge the red and white datasets. The preprocessing of the data includes scaling all numeric features into the same scales, and One Hot Encoding on color as an added feature.
   
-After building a pipeline with the preprocessor and an estimator, we are going to carry out hyperparameter optimization through cross validation. We expect to have one graph showing the metric score (_e.g. accuracy_) vs. hyperparameter values for each estimator we will attempt. 
+After building a pipeline with the preprocessor and an estimator, we are going to carry out hyperparameter optimization through cross validation. We expect to have one graph showing the metric score (_e.g. accuracy_) vs. hyperparameter values for each estimator we will attempt. We also plan as a stretch goal to evaluate which features contribute most to quality by using feature coefficients which we will present as a visualization.
 
 Finally, we will rank models by their performance and select the best model with highest metric score as the final model. We will re-fit the model on the entire training set. The prediction performance will be summarized in the final report as a table.
 
@@ -29,8 +29,8 @@ Thus far the EDA performed can be found [here](https://github.com/UBC-MDS/DSCI_5
 ## Usage
 To replicate the analysis, clone this GitHub repository, install the dependencies listed below, and run the following commands at the command line/terminal from the root directory of this project:
 ```
-python src/download_data.py --url="https://archive.ics.uci.edu/ml/machine-learning-databases/wine-quality/winequality-red.csv" --out_file="data/raw/winequality-red.csv" --delimiter=';'
-python src/download_data.py --url="https://archive.ics.uci.edu/ml/machine-learning-databases/wine-quality/winequality-white.csv" --out_file="data/raw/winequality-white.csv" --delimiter=';'
+python src/download_data.py --url="https://archive.ics.uci.edu/ml/machine-learning-databases/wine-quality/winequality-red.csv" --out_file="data/raw/winequality-red.csv" --delimiter='";"
+python src/download_data.py --url="https://archive.ics.uci.edu/ml/machine-learning-databases/wine-quality/winequality-white.csv" --out_file="data/raw/winequality-white.csv" --delimiter=";"
 jupyter lab EDA.ipynb
   
 ```  
