@@ -28,14 +28,14 @@ Thus far the EDA performed can be found [here](https://github.com/UBC-MDS/DSCI_5
 
 ## Usage
 To replicate the analysis, clone this GitHub repository, install the dependencies listed below, and run the following commands at the command line/terminal from the root directory of this project:
-```
-python src/download_data.py --url="https://archive.ics.uci.edu/ml/machine-learning-databases/wine-quality/winequality-red.csv" --out_file="data/raw/winequality-red.csv" --delimiter='";"
+```python
+python src/download_data.py --url="https://archive.ics.uci.edu/ml/machine-learning-databases/wine-quality/winequality-red.csv" --out_file="data/raw/winequality-red.csv" --delimiter=";"
 python src/download_data.py --url="https://archive.ics.uci.edu/ml/machine-learning-databases/wine-quality/winequality-white.csv" --out_file="data/raw/winequality-white.csv" --delimiter=";"
 jupyter lab EDA.ipynb
   
 ```  
 ## Dependencies
-  We will collect a list of dependencies as we move through the project to publish here.
+We will collect a list of dependencies as we move through the project to publish here.
 
 ## References
 Wine Quality 
