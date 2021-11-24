@@ -31,7 +31,7 @@ To replicate the analysis, clone this GitHub repository, install the dependencie
 ```python
 python src/download_data.py --url="https://archive.ics.uci.edu/ml/machine-learning-databases/wine-quality/winequality-red.csv" --out_file="data/raw/winequality-red.csv" --delimiter=";"
 python src/download_data.py --url="https://archive.ics.uci.edu/ml/machine-learning-databases/wine-quality/winequality-white.csv" --out_file="data/raw/winequality-white.csv" --delimiter=";"
-jupyter lab EDA.ipynb
+jupyter lab src/EDA.ipynb
   
 ```  
 ## Dependencies
