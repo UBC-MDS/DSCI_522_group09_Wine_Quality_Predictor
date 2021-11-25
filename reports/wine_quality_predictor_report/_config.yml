@@ -2,3 +2,6 @@ title: "Wine Quality Predictor Report"
 page_titles: true
 execute:
   execute_notebooks: "auto"
+# In _config.yml
+bibtex_bibfiles:
+    - references.bib
