@@ -1,0 +1,6 @@
+format: jb-book
+root: report_introduction
+chapters: 
+- file: report_summary
+- file: report_methods
+- file: report_results  
