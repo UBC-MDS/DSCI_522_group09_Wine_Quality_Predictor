@@ -18,6 +18,7 @@ import os
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
+import pickle
 from sklearn.compose import make_column_transformer
 from sklearn.pipeline import make_pipeline
 from sklearn.preprocessing import OneHotEncoder, StandardScaler
@@ -155,7 +156,7 @@ def main(input_path_train, input_path_test, output_dir):
         columns=["Feature Importances"],
     ).sort_values(by="Feature Importances", ascending=False)
 
-    # export tables and figures
+    # export tables, figures and model
     try:
         cross_val_results.to_csv(f"{output_dir}/cross_val_results.csv")
     except:
@@ -176,6 +177,11 @@ def main(input_path_train, input_path_test, output_dir):
     except:
         os.makedirs(os.path.dirname(f"{output_dir}/test_cm_png"))
         plt.savefig(f"{output_dir}/test_cm.png")
+    try:
+        pickle.dump(search_rf.best_estimator_, open(f"{output_dir}/random_forest.rds", "wb"))
+    except:
+        os.makedirs(os.path.dirname(f"{output_dir}/random_forest.rds"))
+        pickle.dump(search_rf.best_estimator_, open(f"{output_dir}/random_forest.rds", "wb"))
 
 
 # helper function, adapted from 573 lecture 4
