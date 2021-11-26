@@ -17,8 +17,6 @@ from docopt import docopt
 import pandas as pd
 import os
 from sklearn.model_selection import train_test_split
-from sklearn.compose import make_column_transformer
-from sklearn.preprocessing import OneHotEncoder, StandardScaler
 
 opt = docopt(__doc__)
 
