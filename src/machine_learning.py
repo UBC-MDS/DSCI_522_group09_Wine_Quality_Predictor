@@ -33,7 +33,7 @@ opt = docopt(__doc__)
 
 
 def main(input_path_train, input_path_test, output_dir):
-    # input_path_train= "data/processed/train_df.csv"
+    # input_path_train = "data/processed/train_df.csv"
     # input_path_test = "data/processed/test_df.csv"
     # output_dir = "results"
 
@@ -42,16 +42,12 @@ def main(input_path_train, input_path_test, output_dir):
     test_df = pd.read_csv(input_path_test)
 
     # combine classes to deal with the issue of under-populated classes
-    train_df.loc[train_df["quality"] == 3, "quality"] = "<=4"
-    train_df.loc[train_df["quality"] == 4, "quality"] = "<=4"
-    train_df.loc[train_df["quality"] == 8, "quality"] = ">=8"
-    train_df.loc[train_df["quality"] == 9, "quality"] = ">=8"
+    train_df.loc[train_df["quality"] == 3, "quality"] = 4
+    train_df.loc[train_df["quality"] == 9, "quality"] = 8
     train_df["quality"] = train_df["quality"].map(str)
 
-    test_df.loc[test_df["quality"] == 3, "quality"] = "<=4"
-    test_df.loc[test_df["quality"] == 4, "quality"] = "<=4"
-    test_df.loc[test_df["quality"] == 8, "quality"] = ">=8"
-    test_df.loc[test_df["quality"] == 9, "quality"] = ">=8"
+    test_df.loc[test_df["quality"] == 3, "quality"] = 4
+    test_df.loc[test_df["quality"] == 9, "quality"] = 8
     test_df["quality"] = test_df["quality"].map(str)
 
     # X_train and y_trian
@@ -122,7 +118,7 @@ def main(input_path_train, input_path_test, output_dir):
     search_rf.fit(X_train, y_train)
 
     # results of random forest
-    rf_resutls = {
+    rf_results = {
         "Random Forest Best n_estimators": search_rf.best_params_[
             "randomforestclassifier__n_estimators"
         ],
@@ -148,6 +144,7 @@ def main(input_path_train, input_path_test, output_dir):
         .get_feature_names_out()
     )
     all_columns = numeric_features + categorical_columns
+    print(all_columns)
     feature_importances = pd.DataFrame(
         search_rf.best_estimator_.named_steps[
             "randomforestclassifier"
