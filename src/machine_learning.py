@@ -134,7 +134,7 @@ def main(input_path_train, input_path_test, output_dir):
 
     # confusion matrix
     test_cm = ConfusionMatrixDisplay.from_estimator(
-        search_rf.best_estimator_, X_test, y_test
+        search_rf.best_estimator_, X_test, y_test, display_labels=['<=4', '5', '6', '7', '>=8']
     )
 
     # feature importances
@@ -144,14 +144,13 @@ def main(input_path_train, input_path_test, output_dir):
         .get_feature_names_out()
     )
     all_columns = numeric_features + categorical_columns
-    print(all_columns)
     feature_importances = pd.DataFrame(
         search_rf.best_estimator_.named_steps[
             "randomforestclassifier"
         ].feature_importances_,
         index=all_columns,
         columns=["Feature Importances"],
-    ).sort_values(by="Feature Importances", ascending=False)
+    ).sort_values(by="Feature Importances", ascending=False).drop(index='Unnamed: 0')
 
     # export tables, figures and model
     try:
@@ -179,6 +178,7 @@ def main(input_path_train, input_path_test, output_dir):
     except:
         os.makedirs(os.path.dirname(f"{output_dir}/random_forest.rds"))
         pickle.dump(search_rf.best_estimator_, open(f"{output_dir}/random_forest.rds", "wb"))
+
 
 
 # helper function, adapted from 573 lecture 4
