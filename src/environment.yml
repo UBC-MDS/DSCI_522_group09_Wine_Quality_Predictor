@@ -9,4 +9,5 @@ dependencies:
   - scikit-learn
   - ipykernel
   - jupyter-book
+  - matplotlib
 prefix: C:\Users\gfair\miniconda3\envs\wine_quality_predictor
