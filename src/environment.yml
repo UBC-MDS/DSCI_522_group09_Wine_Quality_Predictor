@@ -8,4 +8,5 @@ dependencies:
   - altair
   - scikit-learn
   - ipykernel
+  - matplotlib
 prefix: C:\Users\gfair\miniconda3\envs\wine_quality_predictor
