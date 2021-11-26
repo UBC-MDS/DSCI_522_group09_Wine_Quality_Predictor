@@ -133,7 +133,7 @@ def main(input_path_train, input_path_test, output_dir):
             X_test, y_test
         ),
     }
-    rf_results = pd.DataFrame(results, index=[0])
+    rf_results = pd.DataFrame(rf_results, index=[0])
 
     # confusion matrix
     test_cm = ConfusionMatrixDisplay.from_estimator(
