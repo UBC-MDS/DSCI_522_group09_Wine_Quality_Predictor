@@ -15,12 +15,8 @@
 # 
 # For each algorithm, the default hyperparameters were used first to train the model, and then the 5-fold cross-validation scores were compared across 3 models. Hyperparameter optimization was carried out on the algorithm with the best cross-validation score. The resulting model with the optimized hyperparameters was the solution to this prediction task. We then assess its performance on test data (_i.e._ unseen examples).
 # 
-# The packages used in EDA and machine learning analysis include: scikit-learn {cite:p}`scikit-learn`.
-# Here is my nifty citation {cite:p}`perez2011python`.
+# The computing language used in this project is Python {cite:p}`perez2011python`. Packages used in EDA and machine learning analysis include: altair {cite:p}`vanderplas2018altair`, docopt {cite:p}`docopt`, scikit-learn {cite:p}`scikit-learn`, matplotlib {cite:p}`Hunter:2007`, numpy {cite:p}`harris2020array`, pandas {cite:p}`mckinney2010data`, pickle {cite:p}`van1995python`.
 
-# Detailed citation in {ref}`bib-label`.
-
-# (bib-label)=
 # ## Bibliography
 # 
 # ```{bibliography} references.bib

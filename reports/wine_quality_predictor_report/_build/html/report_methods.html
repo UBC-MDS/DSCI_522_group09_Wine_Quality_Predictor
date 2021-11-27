@@ -227,28 +227,44 @@
 <h1>Methods<a class="headerlink" href="#methods" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="data">
 <h2>Data<a class="headerlink" href="#data" title="Permalink to this headline">¶</a></h2>
-<p>The data sets used in this project were sampled from the red and white <em>vinho verde</em> wines from the North of Portugal, created by Paulo Cortez, António Cerdeira, Fernando Almeida, Telmo Matos, and José Reis <span id="id1">[<a class="reference internal" href="#id5">CCA+09</a>]</span>. They were sourced from the UC Irvine Machine Learning Repository and can be found <a class="reference external" href="https://archive-beta.ics.uci.edu/ml/datasets/wine+quality">here</a>. One data set is for the red wine, and the other is for the white wine, and both data sets have the same features and target columns. Each row represents a wine sample with its physicochemical properties such as fixed acidity, volatile acidity, etc. The target is a score (integer) ranging from 0 (very bad) to 10 (excellent) that represents the quality of the wine.</p>
+<p>The data sets used in this project were sampled from the red and white <em>vinho verde</em> wines from the North of Portugal, created by Paulo Cortez, António Cerdeira, Fernando Almeida, Telmo Matos, and José Reis <span id="id1">[<a class="reference internal" href="#id11">CCA+09</a>]</span>. They were sourced from the UC Irvine Machine Learning Repository and can be found <a class="reference external" href="https://archive-beta.ics.uci.edu/ml/datasets/wine+quality">here</a>. One data set is for the red wine, and the other is for the white wine, and both data sets have the same features and target columns. Each row represents a wine sample with its physicochemical properties such as fixed acidity, volatile acidity, etc. The target is a score (integer) ranging from 0 (very bad) to 10 (excellent) that represents the quality of the wine.</p>
 </div>
 <div class="section" id="analysis">
 <h2>Analysis<a class="headerlink" href="#analysis" title="Permalink to this headline">¶</a></h2>
 <p>Three classification models were attempted and assessed to predict the quality score of a wine: the logistic regression model, the support machine vector with linear kernel (SVM RBF) and the random forest regression model. These candidates were selected based on their common intriguing attributes such as high interpretability and giving handy measurements on feature importance. All numeric features in the original datasets were included and scaled, with the type of wine (<em>i.e.</em> white or red) as an added binary feature.</p>
 <p>To address the problem of class imbalance, we re-categorized the targets classes into <span class="math notranslate nohighlight">\(\leq4\)</span>, <span class="math notranslate nohighlight">\(5\)</span>, <span class="math notranslate nohighlight">\(6\)</span>, <span class="math notranslate nohighlight">\(7\)</span> and <span class="math notranslate nohighlight">\(\geq8\)</span> so that there are enough training examples in each class. We also chose the scoring metrics to be f-1 macro score, Receiver Operating Characteristic (One vs. Rest) Area under the curve, and Receiver Operating Characteristic (One vs. One) Area under the curve.</p>
 <p>For each algorithm, the default hyperparameters were used first to train the model, and then the 5-fold cross-validation scores were compared across 3 models. Hyperparameter optimization was carried out on the algorithm with the best cross-validation score. The resulting model with the optimized hyperparameters was the solution to this prediction task. We then assess its performance on test data (<em>i.e.</em> unseen examples).</p>
-<p>The packages used in EDA and machine learning analysis include: scikit-learn <span id="id2">[<a class="reference internal" href="#id7">PVG+11</a>]</span>.
-Here is my nifty citation <span id="id3">[<a class="reference internal" href="#id6">PGH11</a>]</span>.</p>
-<p>Detailed citation in <a class="reference internal" href="#bib-label"><span class="std std-ref">Bibliography</span></a>.</p>
+<p>The computing language used in this project is Python <span id="id2">[<a class="reference internal" href="#id13">PGH11</a>]</span>. Packages used in EDA and machine learning analysis include: altair <span id="id3">[<a class="reference internal" href="#id12">VGH+18</a>]</span>, docopt <span id="id4">[<a class="reference internal" href="#id14">deJonge20</a>]</span>, scikit-learn <span id="id5">[<a class="reference internal" href="#id15">PVG+11</a>]</span>, matplotlib <span id="id6">[<a class="reference internal" href="#id16">Hun07</a>]</span>, numpy <span id="id7">[<a class="reference internal" href="#id17">HMvdW+20</a>]</span>, pandas <span id="id8">[<a class="reference internal" href="#id18">M+10</a>]</span>, pickle <span id="id9">[<a class="reference internal" href="#id19">VR20</a>]</span>.</p>
 </div>
 <div class="section" id="bibliography">
-<span id="bib-label"></span><h2>Bibliography<a class="headerlink" href="#bibliography" title="Permalink to this headline">¶</a></h2>
-<p id="id4"><dl class="citation">
-<dt class="label" id="id5"><span class="brackets"><a class="fn-backref" href="#id1">CCA+09</a></span></dt>
+<h2>Bibliography<a class="headerlink" href="#bibliography" title="Permalink to this headline">¶</a></h2>
+<p id="id10"><dl class="citation">
+<dt class="label" id="id11"><span class="brackets"><a class="fn-backref" href="#id1">CCA+09</a></span></dt>
 <dd><p>Paulo Cortez, António Cerdeira, Fernando Almeida, Telmo Matos, and José Reis. Modeling wine preferences by data mining from physicochemical properties. <em>Decision support systems</em>, 47(4):547–553, 2009.</p>
 </dd>
-<dt class="label" id="id7"><span class="brackets"><a class="fn-backref" href="#id2">PVG+11</a></span></dt>
+<dt class="label" id="id17"><span class="brackets"><a class="fn-backref" href="#id7">HMvdW+20</a></span></dt>
+<dd><p>Charles R. Harris, K. Jarrod Millman, Stéfan J. van der Walt, Ralf Gommers, Pauli Virtanen, David Cournapeau, Eric Wieser, Julian Taylor, Sebastian Berg, Nathaniel J. Smith, Robert Kern, Matti Picus, Stephan Hoyer, Marten H. van Kerkwijk, Matthew Brett, Allan Haldane, Jaime Fernández del Río, Mark Wiebe, Pearu Peterson, Pierre Gérard-Marchant, Kevin Sheppard, Tyler Reddy, Warren Weckesser, Hameer Abbasi, Christoph Gohlke, and Travis E. Oliphant. Array programming with NumPy. <em>Nature</em>, 585(7825):357–362, September 2020. URL: <a class="reference external" href="https://doi.org/10.1038/s41586-020-2649-2">https://doi.org/10.1038/s41586-020-2649-2</a>, <a class="reference external" href="https://doi.org/10.1038/s41586-020-2649-2">doi:10.1038/s41586-020-2649-2</a>.</p>
+</dd>
+<dt class="label" id="id16"><span class="brackets"><a class="fn-backref" href="#id6">Hun07</a></span></dt>
+<dd><p>J. D. Hunter. Matplotlib: a 2d graphics environment. <em>Computing in Science &amp; Engineering</em>, 9(3):90–95, 2007. <a class="reference external" href="https://doi.org/10.1109/MCSE.2007.55">doi:10.1109/MCSE.2007.55</a>.</p>
+</dd>
+<dt class="label" id="id18"><span class="brackets"><a class="fn-backref" href="#id8">M+10</a></span></dt>
+<dd><p>Wes McKinney and others. Data structures for statistical computing in python. In <em>Proceedings of the 9th Python in Science Conference</em>, volume 445, 51–56. Austin, TX, 2010.</p>
+</dd>
+<dt class="label" id="id15"><span class="brackets"><a class="fn-backref" href="#id5">PVG+11</a></span></dt>
 <dd><p>F. Pedregosa, G. Varoquaux, A. Gramfort, V. Michel, B. Thirion, O. Grisel, M. Blondel, P. Prettenhofer, R. Weiss, V. Dubourg, J. Vanderplas, A. Passos, D. Cournapeau, M. Brucher, M. Perrot, and E. Duchesnay. Scikit-learn: machine learning in Python. <em>Journal of Machine Learning Research</em>, 12:2825–2830, 2011.</p>
 </dd>
-<dt class="label" id="id6"><span class="brackets"><a class="fn-backref" href="#id3">PGH11</a></span></dt>
+<dt class="label" id="id13"><span class="brackets"><a class="fn-backref" href="#id2">PGH11</a></span></dt>
 <dd><p>Fernando Perez, Brian E Granger, and John D Hunter. Python: an ecosystem for scientific computing. <em>Computing in Science \\&amp; Engineering</em>, 13(2):13–21, 2011.</p>
+</dd>
+<dt class="label" id="id19"><span class="brackets"><a class="fn-backref" href="#id9">VR20</a></span></dt>
+<dd><p>Guido Van Rossum. <em>The Python Library Reference, release 3.8.2</em>. Python Software Foundation, 2020.</p>
+</dd>
+<dt class="label" id="id12"><span class="brackets"><a class="fn-backref" href="#id3">VGH+18</a></span></dt>
+<dd><p>Jacob VanderPlas, Brian Granger, Jeffrey Heer, Dominik Moritz, Kanit Wongsuphasawat, Arvind Satyanarayan, Eitan Lees, Ilia Timofeev, Ben Welsh, and Scott Sievert. Altair: interactive statistical visualizations for python. <em>Journal of open source software</em>, 3(32):1057, 2018.</p>
+</dd>
+<dt class="label" id="id14"><span class="brackets"><a class="fn-backref" href="#id4">deJonge20</a></span></dt>
+<dd><p>Edwin de Jonge. <em>docopt: Command-Line Interface Specification Language</em>. 2020. R package version 0.7.1. URL: <a class="reference external" href="https://CRAN.R-project.org/package=docopt">https://CRAN.R-project.org/package=docopt</a>.</p>
 </dd>
 </dl>
 </p>
