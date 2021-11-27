@@ -3,4 +3,6 @@ root: report_summary
 chapters: 
 - file: report_introduction
 - file: report_methods
-- file: report_results 
+- file: report_results  
+- file: bibliography
+

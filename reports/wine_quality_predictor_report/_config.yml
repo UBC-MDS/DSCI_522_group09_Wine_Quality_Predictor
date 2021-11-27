@@ -1,11 +1,10 @@
 title: "Wine Quality Predictor Report"
 page_titles: true
 execute:
-  execute_notebooks: "auto"
+  execute_notebooks: "force"
 # In _config.yml
 bibtex_bibfiles:
     - references.bib
-# In _config.yml
 sphinx:
   config:
     bibtex_reference_style: author_year
