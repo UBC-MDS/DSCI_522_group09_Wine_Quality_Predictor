@@ -41,4 +41,4 @@ From the root of this project, please run  `conda env create -f src/environment.
 
 ## References
 
-[References can be found here](https://htmlpreview.github.io/?https://github.com/UBC-MDS/DSCI_522_group09_Wine_Quality_Predictor/blob/main/reports/wine_quality_predictor_report/_build/html/references.html).
+[References can be found here](https://htmlpreview.github.io/?https://github.com/UBC-MDS/DSCI_522_group09_Wine_Quality_Predictor/blob/main/reports/wine_quality_predictor_report/_build/html/bibliography.html).
