@@ -1,6 +1,7 @@
 format: jb-book
-root: report_introduction
+root: report_summary
 chapters: 
-- file: report_summary
+- file: report_introduction
 - file: report_methods
 - file: report_results  
+- file: bibliography
