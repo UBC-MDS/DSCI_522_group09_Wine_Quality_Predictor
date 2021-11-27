@@ -21,8 +21,7 @@ The data sets were sampled from the red and white _vinho verde_ wines from the N
 
 ## Report
 
-The final report can be found
-[here](https://github.com/UBC-MDS/DSCI_522_group09_Wine_Quality_Predictor/doc/wine_quality_predict_report.html).
+[The Report can be found here](https://github.com/UBC-MDS/DSCI_522_group09_Wine_Quality_Predictor/reports/wine_quality_predictor_report/_build/html/index.html).
 
 ## Usage
 To replicate the analysis, clone this GitHub repository, install the dependencies listed below, and run the following commands at the command line/terminal from the root directory of this project:
@@ -32,17 +31,14 @@ conda env create --file src/environment.yml
 conda activate wine_quality_predictor
 python src/download_data.py --url="https://archive.ics.uci.edu/ml/machine-learning-databases/wine-quality/winequality-red.csv" --out_file="data/raw/winequality-red.csv" --delimiter=";"
 python src/download_data.py --url="https://archive.ics.uci.edu/ml/machine-learning-databases/wine-quality/winequality-white.csv" --out_file="data/raw/winequality-white.csv" --delimiter=";"  
-python src/preprocess_data.py --input_path_white="data/raw/winequality-white.csv" --input_path_red="data/raw/winequality-red.csv" --output_dir="data/processed"  
-jupyter lab src/EDA.ipynb
+python src/preprocess_data.py --input_path_white="data/raw/winequality-white.csv" --input_path_red="data/raw/winequality-red.csv" --output_dir="data/processed"
+python src/eda.py --input_data="data/processed/train_df.csv" --output_dir="results"
+python src/machine_learning.py --input_path_train="data/processed/train_df.csv" --input_path_test="data/processed/test_df.csv" --output_dir="results"
+
   
 ```  
 ## Dependencies
-From the root of this project, please run  `conda env create -f src/environment.yml`
+From the root of this project, please consult the environment.yml file
 
 ## References
-Wine Quality 
-Paulo Cortez, A. Cerdeira, F. Almeida, T. Matos, J. Reis
-http://www3.dsi.uminho.pt/pcortez/wine5.pdf
-“UCI Machine Learning Repository.” University of California, Irvine, School of Information; Computer Sciences.
-https://archive-beta.ics.uci.edu/ml/datasets/wine+quality
-**TODO Add References**
+[References can be found here](https://github.com/UBC-MDS/DSCI_522_group09_Wine_Quality_Predictor/reports/wine_quality_predictor_report/_build/html/index.html).
