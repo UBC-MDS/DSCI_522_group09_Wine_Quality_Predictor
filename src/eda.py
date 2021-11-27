@@ -18,6 +18,7 @@ import altair as alt
 alt.data_transformers.enable('data_server')
 alt.renderers.enable('mimetype')
 
+
 opt = docopt(__doc__)
 
 def main(input_data, output_dir):
