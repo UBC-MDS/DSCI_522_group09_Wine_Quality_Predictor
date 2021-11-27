@@ -5,3 +5,7 @@ execute:
 # In _config.yml
 bibtex_bibfiles:
     - references.bib
+# In _config.yml
+sphinx:
+  config:
+    bibtex_reference_style: author_year
