@@ -6,9 +6,9 @@ A data analysis (machine learning) project for MDS DSCI522 (Data Science Workflo
 
 ## About
 
-Wine is a product that is both an extremely popular and highly consumed product, and one that can be very expensive to buy and lucrative to sell. It is also sold at much higher variety levels than almost any other consumer product - in some supermarkets well over 1000 different wines are stocked.{cite}
+Wine is a product that is both an extremely popular and highly consumed product, and one that can be very expensive to buy and lucrative to sell. It is also sold at much higher variety levels than almost any other consumer product - in some supermarkets well over 1000 different wines are stocked.Lockshin, 2003
 
-At the same time, it is also one of the hardest to identify quality ahead of purchase, since you must consume it to decide. The level of quality a consumer might require can even vary wildly depending on the consumption occasion ([2 https://psycnet.apa.org/record/2001-11394-001]).
+At the same time, it is also one of the hardest to identify quality ahead of purchase, since you must consume it to decide. The level of quality a consumer might require can even vary wildly depending on the consumption occasion (Lockshin, 2003[https://htmlpreview.github.io/?https://github.com/UBC-MDS/DSCI_522_group09_Wine_Quality_Predictor/blob/main/reports/wine_quality_predictor_report/_build/html/bibliography.html]).
 
 The quality of wine however is difficult to evaluate objectively and is reliant on some very subjective sensory elements. However we believe that this question can be answered by evaluating which physicochemical features are important in determining the quality score of a wine, the wine manufacturers can refine certain wine-making procedures that may yield wines with "promising" properties.
 
