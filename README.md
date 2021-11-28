@@ -49,7 +49,7 @@ jupyter-book build reports/wine_quality_predictor_report
 We are aware that there is an issue with the eda.py script on windows and are working on a resolution. We appear to be missing something in our environment.
     
 ## Dependencies
-From the root of this project, please run  `conda env create -f src/environment.yml`
+From the root of this project, please check src/environment.yml
 
 ## References
 
