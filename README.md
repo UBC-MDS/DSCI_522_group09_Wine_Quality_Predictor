@@ -29,6 +29,8 @@ python -m ipykernel install --user --name wine_quality_predictor --display-name 
 # creating conda environment
 conda env create --file src/environment.yml
 conda activate wine_quality_predictor
+**For Windows Users:
+npm install -g vega vega-cli vega-lite canvas
 
 # downloading data
 python src/download_data.py --url="https://archive.ics.uci.edu/ml/machine-learning-databases/wine-quality/winequality-red.csv" --out_file="data/raw/winequality-red.csv" --delimiter=";"
