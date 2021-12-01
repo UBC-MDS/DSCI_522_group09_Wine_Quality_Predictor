@@ -24,10 +24,10 @@ The data sets were sampled from the red and white _vinho verde_ wines from the N
 ## Usage
 To replicate the analysis, clone this GitHub repository, install the dependencies listed below, and run the following commands at the command line/terminal from the root directory of this project:
 ```python
-python -m ipykernel install --user --name wine_quality_predictor --display-name "Wine Quality Predictor"
 
 # creating conda environment
 conda env create --file src/environment.yml
+python -m ipykernel install --user --name wine_quality_predictor --display-name "Wine Quality Predictor"
 conda activate wine_quality_predictor
 **For Windows Users:
 npm install -g vega vega-cli vega-lite canvas
