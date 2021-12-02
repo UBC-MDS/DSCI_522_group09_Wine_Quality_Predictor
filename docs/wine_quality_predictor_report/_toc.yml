@@ -1,4 +1,7 @@
 format: jb-article
-root: report_single
+root: report_summary
 sections: 
--
+- file: report_introduction
+- file: report_methods
+- file: report_results
+- file: bibliography
