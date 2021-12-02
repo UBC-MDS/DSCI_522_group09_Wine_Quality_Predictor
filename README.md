@@ -16,15 +16,8 @@ The data sets were sampled from the red and white _vinho verde_ wines from the N
 
 ## Usage
 To replicate the analysis, clone this GitHub repository, install the dependencies listed below, and run the following commands at the command line/terminal from the root directory of this project:
+
 ```python
-
-# creating conda environment
-conda env create --file src/environment.yml
-python -m ipykernel install --user --name wine_quality_predictor --display-name "Wine Quality Predictor"
-conda activate wine_quality_predictor
-**For Windows Users:
-npm install -g vega vega-cli vega-lite canvas
-
 # downloading data
 python src/download_data.py --url="https://archive.ics.uci.edu/ml/machine-learning-databases/wine-quality/winequality-red.csv" --out_file="data/raw/winequality-red.csv" --delimiter=";"
 python src/download_data.py --url="https://archive.ics.uci.edu/ml/machine-learning-databases/wine-quality/winequality-white.csv" --out_file="data/raw/winequality-white.csv" --delimiter=";"  
@@ -41,9 +34,21 @@ python src/machine_learning.py --input_path_train="data/processed/train_df.csv" 
 # final report
 jupyter-book build reports/wine_quality_predictor_report
 ```
-We are aware that there is an issue with the eda.py script on windows and are working on a resolution. We appear to be missing something in our environment.
-    
+
 ## Dependencies
+
+To set up the conda environment necessary to reproduce the data analysis, navigate to the root of this project, and then run the following commands at the command line/terminal from the root directory of this project:
+
+```python
+conda env create --file src/environment.yml
+python -m ipykernel install --user --name wine_quality_predictor --display-name "Wine Quality Predictor"
+conda activate wine_quality_predictor
+```
+
+For Windows users, this additional command needs to be run:
+```python
+npm install -g vega vega-cli vega-lite canvas
+```
 
 Python 3.10.0 and Python packages: 
 - ipykernel==6.5.0
