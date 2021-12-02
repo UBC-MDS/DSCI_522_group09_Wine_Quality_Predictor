@@ -1,0 +1,588 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Summary &#8212; Wine Quality Predictor Report</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet">
+  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">Wine Quality Predictor Report</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1 current">
+  <a class="reference internal" href="#">
+   Summary
+  </a>
+ </li>
+</ul>
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/report_single.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/report_single.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Summary
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#introduction">
+   Introduction
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#methods">
+   Methods
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#data">
+     Data
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#analysis">
+     Analysis
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#results-discussion">
+   Results &amp; Discussion
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#bibliography">
+   Bibliography
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="summary">
+<h1>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h1>
+<p>This project is an attempt to build a classification model for predicting wine quality. Our target is multi-class, and since some classes were under-populated, we decided to combine some of them. The final classes are &lt;=4 , 5, 6, 7 and &gt;=8. We evaluated three models for effectiveness in predicting quality scores in red and white wines. Our best classifier was Random Forest Classifier with the test score of 0.685 using Roc_Auc One vs Rest metric. The model has some confusion among the quality scores of 5, 6 and 7 mainly because these classes are of ordinary quality and there are many ordinary quality wines rather than low or high quality wines, and the features do not have well-separated distributions for these features. The test score is not very well but we are confident to share the results since the classification does not include sensitive information. However, it is worth working on feature engineering to extract better features and increase the test score.</p>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="introduction">
+<h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
+<p>Wine is a product that is both an extremely popular and highly consumed product, and one that can be very expensive to buy and lucrative to sell. It is also sold at much higher variety levels than almost any other consumer product - in some supermarkets well over 1000 different wines are stocked.<span id="id1">[<a class="reference internal" href="#id16">Lockshin, 2003</a>]</span></p>
+<p>At the same time, it is also one of the hardest to identify quality ahead of purchase, since you must consume it to decide.  The level of quality a consumer might require can even vary wildly depending on the consumption occasion <span id="id2">[<a class="reference internal" href="#id17">Quester and others, 1998</a>]</span></p>
+<p>The quality of wine however is difficult to evaluate objectively and is reliant on some very subjective sensory elements. However we believe that this question can be answered by evaluating which physicochemical features are important in determining the quality score of a wine, the wine manufacturers can refine certain wine-making procedures that may yield wines with “promising” properties.</p>
+<p>We also believe that by using  a quality score that is a human taste output (i.e. each quality score is a median taken over a minimum of 3 sensory assessors) instead of following an objective and rigid standard, which makes wine certification a complicated task, we can better capture the inherent subjectivity of the task. Therefore, attempting to unravel the relationship between physicochemical properties and human taste sensations may also be a direction in the wine certification field <span id="id3">[<a class="reference internal" href="#id15">Cortez, Cerdeira, Almeida, Matos, and Reis, 2009</a>]</span></p>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="methods">
+<h1>Methods<a class="headerlink" href="#methods" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="data">
+<h2>Data<a class="headerlink" href="#data" title="Permalink to this headline">¶</a></h2>
+<p>The data sets used in this project were sampled from the red and white <em>vinho verde</em> wines from the North of Portugal, created by Paulo Cortez, António Cerdeira, Fernando Almeida, Telmo Matos, and José Reis <span id="id4">[<a class="reference internal" href="#id15">Cortez <em>et al.</em>, 2009</a>]</span>. They were sourced from the UC Irvine Machine Learning Repository<span id="id5">[<a class="reference internal" href="#id18">Dua and Graff, 2017</a>]</span> and can be found <a class="reference external" href="https://archive-beta.ics.uci.edu/ml/datasets/wine+quality">here</a>. One data set is for the red wine, and the other is for the white wine, and both data sets have the same features and target columns. Each row represents a wine sample with its physicochemical properties such as fixed acidity, volatile acidity, etc. The target is a score (integer) ranging from 0 (very bad) to 10 (excellent) that represents the quality of the wine.</p>
+</div>
+<div class="section" id="analysis">
+<h2>Analysis<a class="headerlink" href="#analysis" title="Permalink to this headline">¶</a></h2>
+<p>Three classification models were attempted and assessed to predict the quality score of a wine: the logistic regression model, the support machine vector with linear kernel (SVM RBF) and the random forest classification model. These candidates were selected based on their common intriguing attributes such as high interpretability and giving handy measurements on feature importance. All numeric features in the original datasets were included and scaled, with the type of wine (<em>i.e.</em> white or red) as an added binary feature.</p>
+<p>To address the problem of class imbalance, we re-categorized the targets classes into &lt;=4, 5, 6, 7 and &gt;=8 so that there are enough training examples in each class. We also chose the scoring metrics to be f-1 macro score, Receiver Operating Characteristic (One vs. Rest) Area under the curve, and Receiver Operating Characteristic (One vs. One) Area under the curve.</p>
+<p>For each algorithm, the default hyperparameters were used first to train the model, and then the 5-fold cross-validation scores were compared across 3 models. Hyperparameter optimization was carried out on the algorithm with the best cross-validation score. The resulting model with the optimized hyperparameters was the solution to this prediction task. We then assess its performance on test data (<em>i.e.</em> unseen examples).</p>
+<p>The computing language used in this project is Python <span id="id6">[<a class="reference internal" href="#id20">Perez <em>et al.</em>, 2011</a>]</span>. Packages used in EDA and machine learning analysis include: altair <span id="id7">[<a class="reference internal" href="#id19">VanderPlas <em>et al.</em>, 2018</a>]</span>, docopt <span id="id8">[<a class="reference internal" href="#id21">de Jonge, 2020</a>]</span>, scikit-learn <span id="id9">[<a class="reference internal" href="#id22">Pedregosa <em>et al.</em>, 2011</a>]</span>, matplotlib <span id="id10">[<a class="reference internal" href="#id23">Hunter, 2007</a>]</span>, numpy <span id="id11">[<a class="reference internal" href="#id24">Harris <em>et al.</em>, 2020</a>]</span>, pandas <span id="id12">[<a class="reference internal" href="#id25">McKinney and others, 2010</a>]</span>, pickle <span id="id13">[<a class="reference internal" href="#id26">Van Rossum, 2020</a>]</span>.</p>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="results-discussion">
+<h1>Results &amp; Discussion<a class="headerlink" href="#results-discussion" title="Permalink to this headline">¶</a></h1>
+<p>In order to classify the wine qualities, we chose to use three different models, including support vector machine with linear kernal, logistic regression, and random forest. We carried out 5-fold cross validation on all three models to find the best performing model based on the cross validation scores. During the EDA stage of the project, we observed class imbalance in our data set (<strong><em>Fig. 1</em></strong>). Therefore, we decided to use several scoring metrics such as f1 score, Receiver Operating Characteristic - One versus Rest - Area under the curve (ROC-AUC-OVR), and Receiver Operating Characteristic - One versus One - Area under the curve (ROC-AUC-OVO).</p>
+<div class="figure align-default" id="id27">
+<img alt="_images/figure_1_class_imbalance.png" src="_images/figure_1_class_imbalance.png" />
+<p class="caption"><span class="caption-number">Fig. 1 </span><span class="caption-text">Class imbalance in original data.</span><a class="headerlink" href="#id27" title="Permalink to this image">¶</a></p>
+</div>
+<p>Based on the cross validation results shown in <strong><em>Table. 1</em></strong>, the random forest model performed the best across three models. Therefore, the random forest model was selected for downstream hyperparamater tuning.</p>
+<p><strong><em>Table. 1</em></strong> Summary on f1 macro scores, ROC AUC (OVR) and ROC AUC (OVO) of dummy classifier, SVC, logistic regression, and random forest with default hyperparameters.</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;../../results/cross_val_results.csv&quot;</span><span class="p">,</span> <span class="n">index_col</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>fit_time</th>
+      <th>score_time</th>
+      <th>test_accuracy</th>
+      <th>train_accuracy</th>
+      <th>test_f1_macro</th>
+      <th>train_f1_macro</th>
+      <th>test_roc_auc_ovr</th>
+      <th>train_roc_auc_ovr</th>
+      <th>test_roc_auc_ovo</th>
+      <th>train_roc_auc_ovo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Dummy</th>
+      <td>0.008 (+/- 0.008)</td>
+      <td>0.026 (+/- 0.006)</td>
+      <td>0.333 (+/- 0.013)</td>
+      <td>0.333 (+/- 0.004)</td>
+      <td>0.193 (+/- 0.011)</td>
+      <td>0.200 (+/- 0.005)</td>
+      <td>0.496 (+/- 0.007)</td>
+      <td>0.501 (+/- 0.003)</td>
+      <td>0.496 (+/- 0.007)</td>
+      <td>0.500 (+/- 0.003)</td>
+    </tr>
+    <tr>
+      <th>SVC</th>
+      <td>2.883 (+/- 0.048)</td>
+      <td>0.182 (+/- 0.012)</td>
+      <td>0.532 (+/- 0.017)</td>
+      <td>0.539 (+/- 0.004)</td>
+      <td>0.241 (+/- 0.008)</td>
+      <td>0.244 (+/- 0.002)</td>
+      <td>0.746 (+/- 0.011)</td>
+      <td>0.755 (+/- 0.009)</td>
+      <td>0.730 (+/- 0.012)</td>
+      <td>0.738 (+/- 0.010)</td>
+    </tr>
+    <tr>
+      <th>Logistic Regression</th>
+      <td>0.196 (+/- 0.023)</td>
+      <td>0.024 (+/- 0.002)</td>
+      <td>0.546 (+/- 0.014)</td>
+      <td>0.550 (+/- 0.004)</td>
+      <td>0.325 (+/- 0.012)</td>
+      <td>0.330 (+/- 0.005)</td>
+      <td>0.764 (+/- 0.016)</td>
+      <td>0.778 (+/- 0.003)</td>
+      <td>0.759 (+/- 0.014)</td>
+      <td>0.772 (+/- 0.003)</td>
+    </tr>
+    <tr>
+      <th>Random Forest</th>
+      <td>0.508 (+/- 0.007)</td>
+      <td>0.065 (+/- 0.003)</td>
+      <td>0.652 (+/- 0.012)</td>
+      <td>1.000 (+/- 0.000)</td>
+      <td>0.501 (+/- 0.025)</td>
+      <td>1.000 (+/- 0.000)</td>
+      <td>0.852 (+/- 0.003)</td>
+      <td>1.000 (+/- 0.000)</td>
+      <td>0.847 (+/- 0.003)</td>
+      <td>1.000 (+/- 0.000)</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>To find the best parameters of the random forest model, we perform hyperparameter optimization on <code class="docutils literal notranslate"><span class="pre">n_estimators</span></code> and <code class="docutils literal notranslate"><span class="pre">max_depth</span></code> in the random forest model. The optimal hyperparameter results are shown in the <strong><em>Table. 2</em></strong>. We observed that the optimal <code class="docutils literal notranslate"><span class="pre">n_estimators</span></code> was 4641 and the max_depth was 26. During the hyperparameter optimization, we used <code class="docutils literal notranslate"><span class="pre">roc_auc_ovr</span></code> as our scoring metrics. The validation score for the optimized model is 0.867. Our model performs acceptable, and the test score for the optimized model is 0.685.</p>
+<p><strong><em>Table. 2</em></strong> The best ROC-AUC-OVR cross-validation score together with the hyperparameter combination yielding the it, and the test score of this tuned random forest model on test examples.</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;../../results/random_forest_results.csv&quot;</span><span class="p">,</span> <span class="n">index_col</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Random Forest Best n_estimators</th>
+      <th>Random Forest Best max_depth</th>
+      <th>Random Forest Best Score</th>
+      <th>Random Forest Roc_Auc Test Score</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>4641</td>
+      <td>26</td>
+      <td>0.867</td>
+      <td>0.685</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>In addition, we plotted the confusion matrix of model performance on test data to get insights of how our model performed. As seen in <strong><em>Fig. 2</em></strong>, our model was mostly confused among the quality classes of 5, 6 and 7. This is probably because the features do not have well separated distributions with respect to these classes. This is in line with what we observed in the preliminary exploratory data analysis. Although the model did not perform great on this classification task, our main task does not include any sensitive prediction. Therefore, we are relatively confident to share the results of our model.</p>
+<div class="figure align-default" id="id28">
+<img alt="_images/test_cm.png" src="_images/test_cm.png" />
+<p class="caption"><span class="caption-number">Fig. 2 </span><span class="caption-text">Confusion matrix on test data.</span><a class="headerlink" href="#id28" title="Permalink to this image">¶</a></p>
+</div>
+<p>Among all the features that our data set had, alcohol, density and volatile acidity were the top 3 important features (see <strong><em>Table. 3</em></strong>). On the other hand, fixed acidity, type-white and type-red were the least important features. This result is also consistent with our initial exploratory data analysis. The features alcohol, density and volatile acidity were among the most important features that we observed during exploratory data analysis.</p>
+<p><strong><em>Table. 3</em></strong> The feature importances of the optimized random forest model.</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;../../results/feature_importances.csv&quot;</span><span class="p">,</span> <span class="n">index_col</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Feature Importances</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>alcohol</th>
+      <td>0.116</td>
+    </tr>
+    <tr>
+      <th>density</th>
+      <td>0.094</td>
+    </tr>
+    <tr>
+      <th>volatile acidity</th>
+      <td>0.091</td>
+    </tr>
+    <tr>
+      <th>total sulfur dioxide</th>
+      <td>0.082</td>
+    </tr>
+    <tr>
+      <th>chlorides</th>
+      <td>0.079</td>
+    </tr>
+    <tr>
+      <th>free sulfur dioxide</th>
+      <td>0.079</td>
+    </tr>
+    <tr>
+      <th>residual sugar</th>
+      <td>0.077</td>
+    </tr>
+    <tr>
+      <th>sulphates</th>
+      <td>0.076</td>
+    </tr>
+    <tr>
+      <th>pH</th>
+      <td>0.073</td>
+    </tr>
+    <tr>
+      <th>citric acid</th>
+      <td>0.071</td>
+    </tr>
+    <tr>
+      <th>fixed acidity</th>
+      <td>0.067</td>
+    </tr>
+    <tr>
+      <th>type_white</th>
+      <td>0.003</td>
+    </tr>
+    <tr>
+      <th>type_red</th>
+      <td>0.003</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Furthermore, to improve this model in future, we suggest to gather more wine samples from lower quality class and higher quality class to fix the severe class imbalance issue in the dataset so that it could be used to classify the wine qualities properly in the real world. Also, we could carry out feature engineering like adding polynomial features to our dataset or finding new features, and perform feature elimination to remove unimportant features.</p>
+<p>In conclusion, we used the random forest model which has feature interaction and gives better cross validation scores than the other two models we tried. However, due to the presence of a almost <span class="math notranslate nohighlight">\(20\%\)</span> gap between the cross-validation score and the test score, whether this model will generalize well to real-world unseen data remains a doubt.</p>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="bibliography">
+<h1>Bibliography<a class="headerlink" href="#bibliography" title="Permalink to this headline">¶</a></h1>
+<p id="id14"><dl class="citation">
+<dt class="label" id="id15"><span class="brackets">CCA+09</span><span class="fn-backref">(<a href="#id3">1</a>,<a href="#id4">2</a>)</span></dt>
+<dd><p>Paulo Cortez, António Cerdeira, Fernando Almeida, Telmo Matos, and José Reis. Modeling wine preferences by data mining from physicochemical properties. <em>Decision support systems</em>, 47(4):547–553, 2009.</p>
+</dd>
+<dt class="label" id="id18"><span class="brackets"><a class="fn-backref" href="#id5">DG17</a></span></dt>
+<dd><p>Dheeru Dua and Casey Graff. UCI machine learning repository. 2017. URL: <a class="reference external" href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>.</p>
+</dd>
+<dt class="label" id="id24"><span class="brackets"><a class="fn-backref" href="#id11">HMvdW+20</a></span></dt>
+<dd><p>Charles R. Harris, K. Jarrod Millman, Stéfan J. van der Walt, Ralf Gommers, Pauli Virtanen, David Cournapeau, Eric Wieser, Julian Taylor, Sebastian Berg, Nathaniel J. Smith, Robert Kern, Matti Picus, Stephan Hoyer, Marten H. van Kerkwijk, Matthew Brett, Allan Haldane, Jaime Fernández del Río, Mark Wiebe, Pearu Peterson, Pierre Gérard-Marchant, Kevin Sheppard, Tyler Reddy, Warren Weckesser, Hameer Abbasi, Christoph Gohlke, and Travis E. Oliphant. Array programming with NumPy. <em>Nature</em>, 585(7825):357–362, September 2020. URL: <a class="reference external" href="https://doi.org/10.1038/s41586-020-2649-2">https://doi.org/10.1038/s41586-020-2649-2</a>, <a class="reference external" href="https://doi.org/10.1038/s41586-020-2649-2">doi:10.1038/s41586-020-2649-2</a>.</p>
+</dd>
+<dt class="label" id="id23"><span class="brackets"><a class="fn-backref" href="#id10">Hun07</a></span></dt>
+<dd><p>J. D. Hunter. Matplotlib: a 2d graphics environment. <em>Computing in Science &amp; Engineering</em>, 9(3):90–95, 2007. <a class="reference external" href="https://doi.org/10.1109/MCSE.2007.55">doi:10.1109/MCSE.2007.55</a>.</p>
+</dd>
+<dt class="label" id="id16"><span class="brackets"><a class="fn-backref" href="#id1">Loc03</a></span></dt>
+<dd><p>Larry Lockshin. Consumer purchasing behaviour for wine: what we know and where we are going. <em>Academia.edu</em>, 2003. URL: <a class="reference external" href="https://www.academia.edu/32936140/Consumer_Purchasing_Behaviour_for_Wine_What_We_Know_and_Where_We_are_Going">https://www.academia.edu/32936140/Consumer_Purchasing_Behaviour_for_Wine_What_We_Know_and_Where_We_are_Going</a>.</p>
+</dd>
+<dt class="label" id="id25"><span class="brackets"><a class="fn-backref" href="#id12">M+10</a></span></dt>
+<dd><p>Wes McKinney and others. Data structures for statistical computing in python. In <em>Proceedings of the 9th Python in Science Conference</em>, volume 445, 51–56. Austin, TX, 2010.</p>
+</dd>
+<dt class="label" id="id22"><span class="brackets"><a class="fn-backref" href="#id9">PVG+11</a></span></dt>
+<dd><p>F. Pedregosa, G. Varoquaux, A. Gramfort, V. Michel, B. Thirion, O. Grisel, M. Blondel, P. Prettenhofer, R. Weiss, V. Dubourg, J. Vanderplas, A. Passos, D. Cournapeau, M. Brucher, M. Perrot, and E. Duchesnay. Scikit-learn: machine learning in Python. <em>Journal of Machine Learning Research</em>, 12:2825–2830, 2011.</p>
+</dd>
+<dt class="label" id="id20"><span class="brackets"><a class="fn-backref" href="#id6">PGH11</a></span></dt>
+<dd><p>Fernando Perez, Brian E Granger, and John D Hunter. Python: an ecosystem for scientific computing. <em>Computing in Science \\&amp; Engineering</em>, 13(2):13–21, 2011.</p>
+</dd>
+<dt class="label" id="id17"><span class="brackets"><a class="fn-backref" href="#id2">Q+98</a></span></dt>
+<dd><p>P. G. Quester and others. The influence of consumption situation and product involvement over consumers' use of product attribute. <em>Journal of Consumer Marketing</em>, 1998. URL: <a class="reference external" href="https://doi.org/10.1108/07363769810219107">https://doi.org/10.1108/07363769810219107</a>.</p>
+</dd>
+<dt class="label" id="id26"><span class="brackets"><a class="fn-backref" href="#id13">VR20</a></span></dt>
+<dd><p>Guido Van Rossum. <em>The Python Library Reference, release 3.8.2</em>. Python Software Foundation, 2020.</p>
+</dd>
+<dt class="label" id="id19"><span class="brackets"><a class="fn-backref" href="#id7">VGH+18</a></span></dt>
+<dd><p>Jacob VanderPlas, Brian Granger, Jeffrey Heer, Dominik Moritz, Kanit Wongsuphasawat, Arvind Satyanarayan, Eitan Lees, Ilia Timofeev, Ben Welsh, and Scott Sievert. Altair: interactive statistical visualizations for python. <em>Journal of open source software</em>, 3(32):1057, 2018.</p>
+</dd>
+<dt class="label" id="id21"><span class="brackets"><a class="fn-backref" href="#id8">deJonge20</a></span></dt>
+<dd><p>Edwin de Jonge. <em>docopt: Command-Line Interface Specification Language</em>. 2020. R package version 0.7.1. URL: <a class="reference external" href="https://CRAN.R-project.org/package=docopt">https://CRAN.R-project.org/package=docopt</a>.</p>
+</dd>
+</dl>
+</p>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "wine_quality_predictor"
+        },
+        kernelOptions: {
+            kernelName: "wine_quality_predictor",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'wine_quality_predictor'</script>
+
+              </div>
+              
+        
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By The Jupyter Book community<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>
