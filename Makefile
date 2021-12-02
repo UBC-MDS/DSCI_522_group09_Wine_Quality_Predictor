@@ -34,7 +34,7 @@ report: results_ml results_eda
 	jupyter-book build docs/wine_quality_predictor_report
 
 clean :
-	rm -rf data/raw//winequality-red.csv data/raw//winequality-white.csv
+	rm -rf data/raw/winequality-red.csv data/raw/winequality-white.csv
 	rm -rf data/processed/train_df.csv data/processed/test_df.csv
 	rm -rf results/cross_val_results.csv results/feature_importances.csv results/figure_1_class_imbalance.png results/figure_2_red_and_white_quantities.png results/figure_3_distribution_of_features.png results/random_forest_results.csv results/table_1_combined_dataset.csv results/table_2_observations_count.csv results/table_3_summary.csv results/test_cm.png resuls/random_forest.rds 
 	# Not sure which file I should delete! rm -rf docs/wine_quality_predictor_report
