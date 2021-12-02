@@ -5,7 +5,7 @@
 A data analysis (machine learning) project for MDS DSCI522 (Data Science Workflows) from Group 09.
 
 ## About
- Can we use a machine learning model to predict the human perceived quality of a wine using its physical and chemical attributes? Moreover which of these attribute contributes most to that percieved quality? We compared results from 3 different machine learning models (SVC with Linear Kernel, Logistic Regression, and Random Forest) and selected the best performer (Random Forest). With Random Forest we achieved an ROC/AUC score of 0.86. Further, we found that Alcohol, Density and Volatile Acidity were the top contributors to higher quality scores.
+Can we use a machine learning model to predict the human perceived quality of a wine using its physical and chemical attributes? Moreover which of these attribute contributes most to that percieved quality? We compared results from 3 different machine learning models (SVC with Linear Kernel, Logistic Regression, and Random Forest) and selected the best performer (Random Forest). With Random Forest we achieved an ROC/AUC score of 0.86. Further, we found that Alcohol, Density and Volatile Acidity were the top contributors to higher quality scores.
 
 
 The data sets were sampled from the red and white _vinho verde_ wines from the North of Portugal, created by P. Cortez, A. Cerdeira, F. Almeida, T. Matos and J. Reis (2009). The data sets were sourced from the UC Irvine Machine Learning Repository and can be found [here](https://archive-beta.ics.uci.edu/ml/datasets/wine+quality). One data set is for the red wine, and the other is for the white wine, and both data sets have the same features and target columns. Each row represents a wine sample with its physicochemical properties such as fixed acidity, volatile acidity, etc. The target is a score (integer) ranging from 0 (very bad) to 10 (excellent) that represents the quality of the wine. 
@@ -16,15 +16,8 @@ The data sets were sampled from the red and white _vinho verde_ wines from the N
 
 ## Usage
 To replicate the analysis, clone this GitHub repository, install the dependencies listed below, and run the following commands at the command line/terminal from the root directory of this project:
+
 ```python
-
-# creating conda environment
-conda env create --file src/environment.yml
-python -m ipykernel install --user --name wine_quality_predictor --display-name "Wine Quality Predictor"
-conda activate wine_quality_predictor
-**For Windows Users:
-npm install -g vega vega-cli vega-lite canvas
-
 # downloading data
 python src/download_data.py --url="https://archive.ics.uci.edu/ml/machine-learning-databases/wine-quality/winequality-red.csv" --out_file="data/raw/winequality-red.csv" --delimiter=";"
 python src/download_data.py --url="https://archive.ics.uci.edu/ml/machine-learning-databases/wine-quality/winequality-white.csv" --out_file="data/raw/winequality-white.csv" --delimiter=";"  
@@ -41,10 +34,33 @@ python src/machine_learning.py --input_path_train="data/processed/train_df.csv" 
 # final report
 jupyter-book build reports/wine_quality_predictor_report
 ```
-We are aware that there is an issue with the eda.py script on windows and are working on a resolution. We appear to be missing something in our environment.
-    
+
 ## Dependencies
-From the root of this project, please check src/environment.yml
+
+To set up the conda environment necessary to reproduce the data analysis, navigate to the root of this project, and then run the following commands at the command line/terminal from the root directory of this project:
+
+```python
+conda env create --file src/environment.yml
+python -m ipykernel install --user --name wine_quality_predictor --display-name "Wine Quality Predictor"
+conda activate wine_quality_predictor
+```
+
+For Windows users, this additional command needs to be run:
+```python
+npm install -g vega vega-cli vega-lite canvas
+```
+
+Python 3.10.0 and Python packages: 
+- ipykernel==6.5.0
+- pandas==1.3.4
+- scikit-learn==1.0.1
+- vega_datasets==0.9.0
+- matplotlib==3.5.0
+- altair==4.1.0
+- altair_viewer==0.4.0
+- altair_saver==0.5.0
+- jupyter-book==0.12.1
+- docopt==0.6.2
 
 ## References
 
