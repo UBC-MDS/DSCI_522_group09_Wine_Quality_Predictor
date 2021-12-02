@@ -41,7 +41,6 @@ To set up the conda environment necessary to reproduce the data analysis, naviga
 
 ```python
 conda env create --file src/environment.yml
-python -m ipykernel install --user --name wine_quality_predictor --display-name "Wine Quality Predictor"
 conda activate wine_quality_predictor
 ```
 
