@@ -61,6 +61,8 @@ Python 3.10.0 and Python packages:
 - jupyter-book==0.12.1
 - docopt==0.6.2
 
+GNU Make 3.81
+
 ## References
 
 [References can be found here](https://htmlpreview.github.io/?https://github.com/UBC-MDS/DSCI_522_group09_Wine_Quality_Predictor/blob/main/reports/wine_quality_predictor_report/_build/html/bibliography.html).
