@@ -19,7 +19,7 @@ data/processed/train_df.csv data/processed/test_df.csv : src/preprocess_data.py 
 	python src/preprocess_data.py --input_path_white="data/raw/winequality-white.csv" --input_path_red="data/raw/winequality-red.csv" --output_dir="data/processed"  
 
 # eda
-results/figure_1_class_imbalance.png results/figure_2_red_and_white_quantities.png results/figure_3_distribution_of_features.png results/table_1_combined_dataset.csv table_2_observations_count.csv table_3_summary.csv : src/eda.py data/processed/train_df.csv
+results/figure_1_class_imbalance.png results/figure_2_red_and_white_quantities.png results/figure_3_distribution_of_features.png results/figure_4_correlation_plot.png results/table_1_combined_dataset.csv table_2_observations_count.csv table_3_summary.csv : src/eda.py data/processed/train_df.csv
 	python src/eda.py --input_data="data/processed/train_df.csv" --output_dir="results"
 
 # machine learning analysis
