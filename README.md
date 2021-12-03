@@ -12,7 +12,7 @@ The data sets were sampled from the red and white _vinho verde_ wines from the N
 
 ## Report
 
-[The final report can be found here](https://htmlpreview.github.io/?https://github.com/UBC-MDS/DSCI_522_group09_Wine_Quality_Predictor/blob/main/docs/wine_quality_predictor_report/_build/html/report_single.html).
+[The final report can be found here](https://ubc-mds.github.io/DSCI_522_group09_Wine_Quality_Predictor/report_summary.html).
 
 ## Usage
 To replicate the analysis, clone this GitHub repository, install the [dependencies](#dependencies) listed below, and run the following commands at the command line/terminal from the root directory of this project:
