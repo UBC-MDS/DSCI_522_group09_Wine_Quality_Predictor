@@ -138,3 +138,5 @@ dmypy.json
 #Data
 /data/raw
 /data/processed
+
+/results/random_forest.rds

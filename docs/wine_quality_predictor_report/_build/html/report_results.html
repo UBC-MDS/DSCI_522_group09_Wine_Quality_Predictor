@@ -53,6 +53,8 @@
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Bibliography" href="bibliography.html" />
+    <link rel="prev" title="Methods" href="report_methods.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -86,11 +88,34 @@
     <div class="bd-toc-item active">
         <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="report_single.html">
+  <a class="reference internal" href="report_summary.html">
    Summary
   </a>
  </li>
 </ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="report_introduction.html">
+   Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="report_methods.html">
+   Methods
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Results &amp; Discussion
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="bibliography.html">
+   Bibliography
+  </a>
+ </li>
+</ul>
+
     </div>
 </nav> <!-- To handle the deprecated key -->
 
@@ -180,12 +205,12 @@
         
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="results-discussion">
+  <div class="section" id="results-discussion">
 <h1>Results &amp; Discussion<a class="headerlink" href="#results-discussion" title="Permalink to this headline">¶</a></h1>
 <p>In order to classify the wine qualities, we chose to use three different models, including support vector machine with linear kernal, logistic regression, and random forest. We carried out 5-fold cross validation on all three models to find the best performing model based on the cross validation scores. During the EDA stage of the project, we observed class imbalance in our data set (<strong><em>Fig. 1</em></strong>). Therefore, we decided to use several scoring metrics such as f1 score, Receiver Operating Characteristic - One versus Rest - Area under the curve (ROC-AUC-OVR), and Receiver Operating Characteristic - One versus One - Area under the curve (ROC-AUC-OVO).</p>
 <div class="figure align-default" id="id1">
 <img alt="_images/figure_1_class_imbalance.png" src="_images/figure_1_class_imbalance.png" />
-<p class="caption"><span class="caption-text">Class imbalance in original data.</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 1 </span><span class="caption-text">Class imbalance in original data.</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
 </div>
 <p>Based on the cross validation results shown in <strong><em>Table. 1</em></strong>, the random forest model performed the best across three models. Therefore, the random forest model was selected for downstream hyperparamater tuning.</p>
 <p><strong><em>Table. 1</em></strong> Summary on f1 macro scores, ROC AUC (OVR) and ROC AUC (OVO) of dummy classifier, SVC, logistic regression, and random forest with default hyperparameters.</p>
@@ -332,7 +357,7 @@
 <p>In addition, we plotted the confusion matrix of model performance on test data to get insights of how our model performed. As seen in <strong><em>Fig. 2</em></strong>, our model was mostly confused among the quality classes of 5, 6 and 7. This is probably because the features do not have well separated distributions with respect to these classes. This is in line with what we observed in the preliminary exploratory data analysis. Although the model did not perform great on this classification task, our main task does not include any sensitive prediction. Therefore, we are relatively confident to share the results of our model.</p>
 <div class="figure align-default" id="id2">
 <img alt="_images/test_cm.png" src="_images/test_cm.png" />
-<p class="caption"><span class="caption-text">Confusion matrix on test data.</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 2 </span><span class="caption-text">Confusion matrix on test data.</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
 </div>
 <p>Among all the features that our data set had, alcohol, density and volatile acidity were the top 3 important features (see <strong><em>Table. 3</em></strong>). On the other hand, fixed acidity, type-white and type-red were the least important features. This result is also consistent with our initial exploratory data analysis. The features alcohol, density and volatile acidity were among the most important features that we observed during exploratory data analysis.</p>
 <p><strong><em>Table. 3</em></strong> The feature importances of the optimized random forest model.</p>
@@ -449,7 +474,21 @@
               
         
             <!-- Previous / next buttons -->
-<div class='prev-next-area'>
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="report_methods.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Methods</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="bibliography.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Bibliography</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
 </div>
         
         </div>

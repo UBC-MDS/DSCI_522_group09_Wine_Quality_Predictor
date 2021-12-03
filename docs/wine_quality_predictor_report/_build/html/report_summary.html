@@ -51,6 +51,7 @@
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Introduction" href="report_introduction.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -83,12 +84,35 @@
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
         <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="report_single.html">
+ <li class="toctree-l1 current">
+  <a class="reference internal" href="#">
    Summary
   </a>
  </li>
 </ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="report_introduction.html">
+   Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="report_methods.html">
+   Methods
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="report_results.html">
+   Results &amp; Discussion
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="bibliography.html">
+   Bibliography
+  </a>
+ </li>
+</ul>
+
     </div>
 </nav> <!-- To handle the deprecated key -->
 
@@ -178,9 +202,11 @@
         
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="summary">
+  <div class="section" id="summary">
 <h1>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h1>
 <p>This project is an attempt to build a classification model for predicting wine quality. Our target is multi-class, and since some classes were under-populated, we decided to combine some of them. The final classes are &lt;=4 , 5, 6, 7 and &gt;=8. We evaluated three models for effectiveness in predicting quality scores in red and white wines. Our best classifier was Random Forest Classifier with the test score of 0.685 using Roc_Auc One vs Rest metric. The model has some confusion among the quality scores of 5, 6 and 7 mainly because these classes are of ordinary quality and there are many ordinary quality wines rather than low or high quality wines, and the features do not have well-separated distributions for these features. The test score is not very well but we are confident to share the results since the classification does not include sensitive information. However, it is worth working on feature engineering to extract better features and increase the test score.</p>
+<div class="toctree-wrapper compound">
+</div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -208,6 +234,13 @@
         
             <!-- Previous / next buttons -->
 <div class='prev-next-area'>
+    <a class='right-next' id="next-link" href="report_introduction.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Introduction</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
 </div>
         
         </div>
