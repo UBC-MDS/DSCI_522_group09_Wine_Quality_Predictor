@@ -1,0 +1,9 @@
+# Sphinx build info version 1
+# This file hashes the configuration used when building these files. When it is not found, a full rebuild will be done.
+<<<<<<< HEAD
+config: f5cf123124df31a8121996185be2ffa4
+tags: 645f666f9bcd5a90fca523b33c5a78b7
+=======
+config: 30ebef8cd28e3588618b4c6ff167aa26
+tags: 33eac41acc08762151beb8f3b7b86c8f
+>>>>>>> jb_ideal
