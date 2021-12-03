@@ -18,21 +18,14 @@ The data sets were sampled from the red and white _vinho verde_ wines from the N
 To replicate the analysis, clone this GitHub repository, install the [dependencies](#dependencies) listed below, and run the following commands at the command line/terminal from the root directory of this project:
 
 ```python
-# downloading data
-python src/download_data.py --url="https://archive.ics.uci.edu/ml/machine-learning-databases/wine-quality/winequality-red.csv" --out_file="data/raw/winequality-red.csv" --delimiter=";"
-python src/download_data.py --url="https://archive.ics.uci.edu/ml/machine-learning-databases/wine-quality/winequality-white.csv" --out_file="data/raw/winequality-white.csv" --delimiter=";"  
+make all
+```
+This command will download and preprocess the data. Then, it will create exploratory data analysis and run the machine learning analysis. Finally, it will create a report replicating all we have done in the project.
 
-# preprocessing data
-python src/preprocess_data.py --input_path_white="data/raw/winequality-white.csv" --input_path_red="data/raw/winequality-red.csv" --output_dir="data/processed"  
+If you want to remove the files created during running the above command, run the command below from the root directory of this project:
 
-# eda
-python src/eda.py --input_data="data/processed/train_df.csv" --output_dir="results"
-
-# machine learning analysis
-python src/machine_learning.py --input_path_train="data/processed/train_df.csv" --input_path_test="data/processed/test_df.csv" --output_dir="results"
-
-# final report
-jupyter-book build reports/wine_quality_predictor_report
+```python
+make clean
 ```
 
 ## Dependencies
