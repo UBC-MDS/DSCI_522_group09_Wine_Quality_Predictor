@@ -65,4 +65,4 @@ GNU Make 3.81
 
 ## References
 
-[References can be found here](https://htmlpreview.github.io/?https://github.com/UBC-MDS/DSCI_522_group09_Wine_Quality_Predictor/blob/main/reports/wine_quality_predictor_report/_build/html/bibliography.html).
+[References can be found here](https://htmlpreview.github.io/?https://github.com/UBC-MDS/DSCI_522_group09_Wine_Quality_Predictor/blob/main/docs/wine_quality_predictor_report/_build/singlehtml/report_summary.html#document-bibliography).
