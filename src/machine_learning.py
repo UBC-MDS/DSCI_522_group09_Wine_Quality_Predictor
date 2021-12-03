@@ -125,7 +125,7 @@ def main(input_path_train, input_path_test, output_dir):
         "Random Forest Best max_depth": search_rf.best_params_[
             "randomforestclassifier__max_depth"
         ],
-        "Random Forest Best Score": search_rf.best_score_,
+        "Random Forest Best Validation Score": search_rf.best_score_,
         "Random Forest Roc_Auc Test Score": search_rf.best_estimator_.score(
             X_test, y_test
         ),
