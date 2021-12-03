@@ -3,11 +3,7 @@ var DOCUMENTATION_OPTIONS = {
     VERSION: '',
     LANGUAGE: 'None',
     COLLAPSE_INDEX: false,
-<<<<<<< HEAD
-    BUILDER: 'html',
-=======
     BUILDER: 'singlehtml',
->>>>>>> jb_ideal
     FILE_SUFFIX: '.html',
     LINK_SUFFIX: '.html',
     HAS_SOURCE: true,
