@@ -24,7 +24,7 @@ def main(input_data, output_dir):
     
     # read in train_df.csv
     train_df = pd.read_csv(input_data, index_col=0)
-    train_df["quality"] = train_df['quality'].map(str)
+    train_df["quality"] = train_df["quality"].map(str)
 
     # make tables
     ## count target values
@@ -91,6 +91,21 @@ def main(input_data, output_dir):
     columns=3,
     )
 
+    train_df["quality"] = train_df["quality"].map(int)
+    corr_df = train_df.select_dtypes('number').corr('spearman').stack().reset_index(name='corr')
+    corr_df.loc[corr_df['corr'] == 1, 'corr'] = 0  # Remove diagonal
+    corr_df['abs'] = corr_df['corr'].abs()
+    # Make the target appear at last in correlation plot
+    variable_order = train_df.select_dtypes('number').columns.to_list()
+    figure_4 = alt.Chart(corr_df, title="Correlation plot").mark_circle().encode(
+    x=alt.X('level_0', title="", sort=variable_order),
+    y=alt.Y('level_1', title="", sort=variable_order),
+    size=alt.Size('abs', title="Magnitude of correlation"),
+    color=alt.Color('corr', 
+                    scale=alt.Scale(scheme='blueorange', domain=(-1, 1)),
+                    title="Correlation",
+                   ))
+
     # export figures
     ## figure_1_class_imbalance.png
     try:
@@ -112,6 +127,13 @@ def main(input_data, output_dir):
     except:
         os.makedirs(os.path.dirname(f"{output_dir}"))
         figure_3.save(f"{output_dir}/figure_3_distribution_of_features.png", scale_factor=3)
+    
+    ## figure_4_correlation_plot.png
+    try:
+        figure_4.save(f"{output_dir}/figure_4_correlation_plot.png", scale_factor=3)
+    except:
+        os.makedirs(os.path.dirname(f"{output_dir}"))
+        figure_4.save(f"{output_dir}/figure_4_correlation_plot.png", scale_factor=3)
 
 
 if __name__ == "__main__":
