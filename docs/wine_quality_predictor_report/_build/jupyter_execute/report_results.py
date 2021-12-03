@@ -58,9 +58,12 @@ pd.read_csv("../../results/random_forest_results.csv", index_col = 0).round(3)
 pd.read_csv("../../results/feature_importances.csv", index_col = 0).round(3)
 
 
-# Furthermore, to improve this model in future, we suggest to gather more wine samples from lower quality class and higher quality class to fix the severe class imbalance issue in the dataset so that it could be used to classify the wine qualities properly in the real world. Also, we could carry out feature engineering like adding polynomial features to our dataset or finding new features, and perform feature elimination to remove unimportant features.
+# ## Conclusions
 # 
-# In conclusion, we used the random forest model which has feature interaction and gives better cross validation scores than the other two models we tried. However, due to the presence of a almost $20\%$ gap between the cross-validation score and the test score, whether this model will generalize well to real-world unseen data remains a doubt.
+# In conclusion, we used the random forest model which has feature interaction and gives better cross validation scores than the other two models we tried. However, due to the presence of a almost 20% gap between the cross-validation score and the test score, whether this model will generalize well to real-world unseen data remains a doubt.
+# 
+# ## Limitations
+# Furthermore, to improve this model in future, we suggest to gather more wine samples from lower quality class and higher quality class to fix the severe class imbalance issue in the dataset so that it could be used to classify the wine qualities properly in the real world. Also, we could carry out feature engineering like adding polynomial features to our dataset or finding new features, and perform feature elimination to remove unimportant features.
 
 # In[ ]:
 
