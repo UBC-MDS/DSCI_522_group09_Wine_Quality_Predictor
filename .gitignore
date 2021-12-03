@@ -135,8 +135,6 @@ dmypy.json
 **.virtual_documents
 .virtual_documents/
 
-#Data
-/data/raw
-/data/processed
+
 
 /results/random_forest.rds
