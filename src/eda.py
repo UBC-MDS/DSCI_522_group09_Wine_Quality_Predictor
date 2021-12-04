@@ -94,7 +94,7 @@ def main(input_data, output_dir):
     # make the correlation plot
     train_df_int = train_df.copy()
     train_df_int["quality"] = train_df_int["quality"].map(int)
-    corr_df = train_df.select_dtypes('number').corr('spearman').stack().reset_index(name='corr')
+    corr_df = train_df_int.select_dtypes('number').corr('spearman').stack().reset_index(name='corr')
     corr_df.loc[corr_df['corr'] == 1, 'corr'] = 0  # Remove diagonal
     corr_df['abs'] = corr_df['corr'].abs()
     # Make the target appear at last in correlation plot
