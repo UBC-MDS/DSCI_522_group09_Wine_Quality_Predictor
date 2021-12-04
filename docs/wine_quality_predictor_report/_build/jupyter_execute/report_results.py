@@ -30,7 +30,7 @@ import pandas as pd
 pd.read_csv("../../results/cross_val_results.csv", index_col = 0)
 
 
-# To find the best parameters of the random forest model, we perform hyperparameter optimization on `n_estimators` and `max_depth` in the random forest model. The optimal hyperparameter results are shown in the **_Table. 2_**. We observed that the optimal `n_estimators` was 4641 and the max_depth was 26. During the hyperparameter optimization, we used `roc_auc_ovr` as our scoring metrics. The validation score for the optimized model is 0.867. Our model performs acceptable, and the test score for the optimized model is 0.685.
+# To find the best parameters of the random forest model, we perform hyperparameter optimization on `n_estimators` and `max_depth` in the random forest model. The optimal hyperparameter results are shown in the **_Table. 2_**. We observed that the optimal `n_estimators` was 4641 and the max_depth was 26. During the hyperparameter optimization, we used `roc_auc_ovr` as our scoring metrics. The validation score for the optimized model is 0.867, and the test score for the optimized model is 0.685.
 
 # **_Table. 2_** The best ROC-AUC-OVR cross-validation score together with the hyperparameter combination yielding the it, and the test score of this tuned random forest model on test examples.
 
@@ -40,7 +40,7 @@ pd.read_csv("../../results/cross_val_results.csv", index_col = 0)
 pd.read_csv("../../results/random_forest_results.csv", index_col = 0).round(3)
 
 
-# In addition, we plotted the confusion matrix of model performance on test data to get insights of how our model performed. As seen in **_Fig. 3_**, our model was mostly confused among the quality classes of 5, 6 and 7. This is probably because the features do not have well separated distributions with respect to these classes. This is in line with what we observed in the preliminary exploratory data analysis. Although the model did not perform great on this classification task, our main task does not include any sensitive prediction. Therefore, we are relatively confident to share the results of our model.
+# In addition, we plotted the confusion matrix of model performance on test data to get insights of how our model performed. As seen in **_Fig. 3_**, our model was mostly confused among the quality classes of "5", "6" and "7". This is probably because the features do not have well separated distributions with respect to these classes. This is in line with what we observed in the preliminary exploratory data analysis. Although the model did not perform great on this classification task, our main task does not include any sensitive prediction. Therefore, we are relatively confident to share the results of our model.
 
 # ```{figure} ../../results/test_cm.png
 # 
@@ -48,7 +48,7 @@ pd.read_csv("../../results/random_forest_results.csv", index_col = 0).round(3)
 # Confusion matrix on test data.
 # ```
 
-# Among all the features that our data set had, alcohol, density and volatile acidity were the top 3 important features (see **_Table. 3_**). On the other hand, fixed acidity, type-white and type-red were the least important features. This result is also consistent with our initial exploratory data analysis. The features alcohol, density and volatile acidity were among the most important features that we observed during exploratory data analysis.
+# Among all the features that our data set had, `alcohol`, `density` and `volatile acidity` were the top 3 important features (see **_Table. 3_**). On the other hand, `fixed acidity`, `type_white` and `type_red` were the least important features. This result is also consistent with our initial exploratory data analysis.
 
 # **_Table. 3_** The feature importances of the optimized random forest model.
 
@@ -60,13 +60,8 @@ pd.read_csv("../../results/feature_importances.csv", index_col = 0).round(3)
 
 # ## Conclusions
 # 
-# In conclusion, we used the random forest model which has feature interaction and gives better cross validation scores than the other two models we tried. However, due to the presence of a almost 20% gap between the cross-validation score and the test score, whether this model will generalize well to real-world unseen data remains a doubt.
+# In conclusion, the random forest model seems to be a good candidate for this quality prediction task, and the tuned random forest model ranks `alcohol`, `density` and `volatile acidity` as the 3 most important features. However, due to the presence of a almost 20% gap between the cross-validation score and the test score, whether this model will generalize well to real-world unseen data remains a doubt.
 # 
-# ## Limitations
-# Furthermore, to improve this model in future, we suggest to gather more wine samples from lower quality class and higher quality class to fix the severe class imbalance issue in the dataset so that it could be used to classify the wine qualities properly in the real world. Also, we could carry out feature engineering like adding polynomial features to our dataset or finding new features, and perform feature elimination to remove unimportant features.
-
-# In[ ]:
-
-
-
-
+# ## Limitations & Future Work
+# 
+# Firstly, we suggest to gather more wine samples from lower quality class and higher quality class to fix the severe class imbalance issue in the dataset so that it could be used to classify the wine qualities properly in the real world. Additionally, to improve the model performance in future, we could carry out feature engineering such as adding polynomial features or creating new features under domain expertise, and perform feature elimination to remove unimportant features.
