@@ -1,6 +1,6 @@
 # Wine_Quality_Predictor
 
-- authors: Gabriel Fairbrother, Paniz Fazlali, Luming Yang, Wanying Ye.
+- authors: Gabriel Fairbrother, Paniz Fazlali, Luming Yang, Wanying Ye; The University of British Columbia, Master of Data Science.
 
 A data analysis (machine learning) project for MDS DSCI522 (Data Science Workflows) from Group 09.
 
