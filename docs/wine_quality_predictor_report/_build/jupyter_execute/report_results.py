@@ -64,4 +64,10 @@ pd.read_csv("../../results/feature_importances.csv", index_col = 0).round(3)
 # 
 # ## Limitations & Future Work
 # 
-# Firstly, we suggest to gather more wine samples from lower quality class and higher quality class to fix the severe class imbalance issue in the dataset so that it could be used to classify the wine qualities properly in the real world. Additionally, to improve the model performance in future, we could carry out feature engineering such as adding polynomial features or creating new features under domain expertise, and perform feature elimination to remove unimportant features.
+# Firstly, we suggest gathering more wine samples from lower quality class and higher quality class to fix the severe class imbalance issue in the dataset so that it could be used to classify the wine qualities properly in the real world. Additionally, to improve the model performance in future, we could carry out feature engineering such as adding polynomial features or creating new features under domain expertise, and perform feature elimination to remove unimportant features. It may also be worth diversifying the wine types to other regions and varietals.
+
+# In[ ]:
+
+
+
+

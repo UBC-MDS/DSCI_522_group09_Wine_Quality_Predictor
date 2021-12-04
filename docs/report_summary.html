@@ -193,14 +193,13 @@
   <div class="tex2jax_ignore mathjax_ignore section" id="summary">
 <h1>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h1>
 <p>This project is an attempt to build a classification model for predicting wine quality. We have two main questions. First, can we use a machine learning model to predict the human perceived quality of a wine using its physical and chemical attributes? Second, which of these attributes contribute most to that perceived quality?</p>
-<p>We evaluated three models including Logistic Regression, Support Vector Machine with linear keranl (SVC linear) and Random Forest Classification. Our best classifier was Random Forest Classifier, with the best validation ROC AUC (One vs Rest) score of 0.867 through hyperparameter optimization. The test ROC AUC (One vs Rest) score for Random Forest Classifier was 0.685. The confusion matrix implies that the model did a fairly good job - most of the false predictions fall into adjacent classes, which makes sense because our targets classes are indeed ordinal. The feature importances given by this optimized model suggested that <code class="docutils literal notranslate"><span class="pre">alcohol</span></code>, <code class="docutils literal notranslate"><span class="pre">density</span></code> and <code class="docutils literal notranslate"><span class="pre">volatile</span> <span class="pre">acidity</span></code> are the top 3 contributing features in this prediction task. In general, we are confident to use and share this model as a preliminary tool to classify the quality scores of red and white wines. We recommend further improvement on feature engineering to extract better features and increase the model performance.</p>
+<p>We evaluated three models including Logistic Regression, Support Vector Machine with linear kernel (SVC linear) and Random Forest Classification. Our best classifier was Random Forest Classifier, with the best validation ROC AUC (One vs Rest) score of 0.867 through hyperparameter optimization. The test ROC AUC (One vs Rest) score for Random Forest Classifier was 0.685. The confusion matrix implies that the model did a fairly good job - most of the false predictions fall into adjacent classes, which makes sense because our target classes are indeed ordinal. The feature importances given by this optimized model suggested that <code class="docutils literal notranslate"><span class="pre">alcohol</span></code>, <code class="docutils literal notranslate"><span class="pre">density</span></code> and <code class="docutils literal notranslate"><span class="pre">volatile</span> <span class="pre">acidity</span></code> are the top 3 contributing features in this prediction task. In general, we are confident to use and share this model as a preliminary tool to classify the quality scores of red and white wines. We recommend further improvement on feature engineering to extract better features and increase the model performance.</p>
 <div class="toctree-wrapper compound">
 <span id="document-report_introduction"></span><div class="tex2jax_ignore mathjax_ignore section" id="introduction">
 <h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
-<p>Wine is a product that is both an extremely popular and highly consumed product, and one that can be very expensive to buy and lucrative to sell. It is also sold at much higher variety levels than almost any other consumer product - in some supermarkets well over 1000 different wines are stocked.<span id="id1">[<a class="reference internal" href="report_summary.html#id3">Lockshin, 2003</a>]</span></p>
+<p>Wine is both an extremely popular and highly consumed product, one that can be very expensive to buy and lucrative to sell. It is also sold at much higher variety levels than almost any other consumer product - in some supermarkets well over 1000 different wines are stocked.<span id="id1">[<a class="reference internal" href="report_summary.html#id3">Lockshin, 2003</a>]</span></p>
 <p>At the same time, it is also one of the hardest to identify quality ahead of purchase, since you must consume it to decide.  The level of quality a consumer might require can even vary wildly depending on the consumption occasion <span id="id2">[<a class="reference internal" href="report_summary.html#id4">Quester and others, 1998</a>]</span></p>
-<p>The quality of wine however is difficult to evaluate objectively and is reliant on some very subjective sensory elements. However we believe that this question can be answered by evaluating which physicochemical features are important in determining the quality score of a wine, the wine manufacturers can refine certain wine-making procedures that may yield wines with “promising” properties.</p>
-<p>We also believe that by using  a quality score that is a human taste output (i.e. each quality score is a median taken over a minimum of 3 sensory assessors) instead of following an objective and rigid standard, which makes wine certification a complicated task, we can better capture the inherent subjectivity of the task. Therefore, attempting to unravel the relationship between physicochemical properties and human taste sensations may also be a direction in the wine certification field <span id="id3">[<a class="reference internal" href="report_summary.html#id2">Cortez, Cerdeira, Almeida, Matos, and Reis, 2009</a>]</span></p>
+<p>The quality of wine is difficult to evaluate objectively and is reliant on some very subjective sensory elements. However we believe that this question can be answered by evaluating which physicochemical features are important in determining the quality score of a wine. We also believe that by using  a quality score that is a human taste output (i.e. each quality score is a median taken over a minimum of 3 sensory assessors) instead of following an objective and rigid standard (which makes wine certification a complicated task), we can better capture the inherent subjectivity of the task. Therefore, attempting to unravel the relationship between physicochemical properties and human taste sensations may also be a direction in the wine certification field <span id="id3">[<a class="reference internal" href="report_summary.html#id2">Cortez, Cerdeira, Almeida, Matos, and Reis, 2009</a>]</span></p>
 <p>We believe that using a machine learning model to predict the human perceived quality can be useful in multiple wine-related industries to help retailers choose more desirable wine selections for consumers and also help producers focus their processes to create higher quality wines.</p>
 </div>
 <span id="document-report_methods"></span><div class="tex2jax_ignore mathjax_ignore section" id="methods">
@@ -211,10 +210,10 @@
 </div>
 <div class="section" id="analysis">
 <h3>Analysis<a class="headerlink" href="#analysis" title="Permalink to this headline">¶</a></h3>
-<p>Three classification models were attempted and assessed to predict the quality score of a wine: <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html">Logistic Regression</a>, <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.svm.SVC.html">Support Vector Machine with linear keranl (SVC linear)</a> and <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html">Random Forest Classification</a>. These candidates were selected based on their common intriguing attributes such as high interpretability and giving handy measurements on feature importance. All numeric features in the original datasets were included and scaled, with the type of wine (<em>i.e.</em> white or red) as an added binary feature.</p>
+<p>Three classification models were attempted and assessed to predict the quality score of a wine: <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html">Logistic Regression</a>, <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.svm.SVC.html">Support Vector Machine with linear kernel (SVC linear)</a> and <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html">Random Forest Classification</a>. These candidates were selected based on their common intriguing attributes such as high interpretability and giving handy measurements on feature importance. All numeric features in the original datasets were included and scaled, with the type of wine (<em>i.e.</em> white or red) as an added binary feature.</p>
 <p>During the EDA stage, we discovered the data set has severe class-imbalance issue. Our target is multi-class in terms of quality scores ranging from “3” to “9”. However, the classes “3” and “9” were extremely under-populated. Therefore, we decided to combine the lowest two classes (“3” and “4”) and the highest two classes (“8” and “9”) to mitigate the severe class imbalance problem. By doing so, the number of examples in each class is distributed more evenly. The final quality score classes are “&lt;=4”, “5”, “6”, “7” and “&gt;=8”. The best wines will be classified as “&gt;=8”, and the poorest wines will be classified as “&lt;=4”.</p>
 <p>We also chose the scoring metrics to be f-1 macro score, Receiver Operating Characteristic (One vs. Rest) Area Under the Curve, and Receiver Operating Characteristic (One vs. One) Area Under the Curve.</p>
-<p>For each algorithm, the default hyperparameters were used first to train the model, and then the 5-fold cross-validation scores were compared across 3 models. Hyperparameter optimization was carried out on the algorithm with the best cross-validation score. The resulting model with the optimized hyperparameters was the solution to this prediction task. We then assess its performance on test data (<em>i.e.</em> unseen examples).</p>
+<p>For each algorithm, the default hyperparameters were used first to train the model, and then the 5-fold cross-validation scores were compared across the models. Hyperparameter optimization was carried out on the algorithm with the best cross-validation score. The resulting model with the optimized hyperparameters was the solution to this prediction task. We then assess its performance on test data (<em>i.e.</em> unseen examples).</p>
 <p>The computing language used in this project is Python <span id="id3">[<a class="reference internal" href="report_summary.html#id7">Perez <em>et al.</em>, 2011</a>]</span>. Packages used in EDA and machine learning analysis include: altair <span id="id4">[<a class="reference internal" href="report_summary.html#id6">VanderPlas <em>et al.</em>, 2018</a>]</span>, docopt <span id="id5">[<a class="reference internal" href="report_summary.html#id8">de Jonge, 2020</a>]</span>, scikit-learn <span id="id6">[<a class="reference internal" href="report_summary.html#id9">Pedregosa <em>et al.</em>, 2011</a>]</span>, matplotlib <span id="id7">[<a class="reference internal" href="report_summary.html#id10">Hunter, 2007</a>]</span>, numpy <span id="id8">[<a class="reference internal" href="report_summary.html#id11">Harris <em>et al.</em>, 2020</a>]</span>, pandas <span id="id9">[<a class="reference internal" href="report_summary.html#id12">McKinney and others, 2010</a>]</span>, pickle <span id="id10">[<a class="reference internal" href="report_summary.html#id13">Van Rossum, 2020</a>]</span>.</p>
 </div>
 </div>
@@ -273,8 +272,8 @@
   <tbody>
     <tr>
       <th>Dummy</th>
-      <td>0.009 (+/- 0.002)</td>
-      <td>0.029 (+/- 0.003)</td>
+      <td>0.008 (+/- 0.008)</td>
+      <td>0.026 (+/- 0.006)</td>
       <td>0.333 (+/- 0.013)</td>
       <td>0.333 (+/- 0.004)</td>
       <td>0.193 (+/- 0.011)</td>
@@ -286,8 +285,8 @@
     </tr>
     <tr>
       <th>SVC</th>
-      <td>3.577 (+/- 0.113)</td>
-      <td>0.227 (+/- 0.003)</td>
+      <td>2.883 (+/- 0.048)</td>
+      <td>0.182 (+/- 0.012)</td>
       <td>0.532 (+/- 0.017)</td>
       <td>0.539 (+/- 0.004)</td>
       <td>0.241 (+/- 0.008)</td>
@@ -299,21 +298,21 @@
     </tr>
     <tr>
       <th>Logistic Regression</th>
-      <td>0.214 (+/- 0.015)</td>
-      <td>0.027 (+/- 0.001)</td>
+      <td>0.196 (+/- 0.023)</td>
+      <td>0.024 (+/- 0.002)</td>
       <td>0.546 (+/- 0.014)</td>
       <td>0.550 (+/- 0.004)</td>
       <td>0.325 (+/- 0.012)</td>
       <td>0.330 (+/- 0.005)</td>
       <td>0.764 (+/- 0.016)</td>
-      <td>0.777 (+/- 0.003)</td>
+      <td>0.778 (+/- 0.003)</td>
       <td>0.759 (+/- 0.014)</td>
       <td>0.772 (+/- 0.003)</td>
     </tr>
     <tr>
       <th>Random Forest</th>
-      <td>0.648 (+/- 0.005)</td>
-      <td>0.079 (+/- 0.001)</td>
+      <td>0.508 (+/- 0.007)</td>
+      <td>0.065 (+/- 0.003)</td>
       <td>0.652 (+/- 0.012)</td>
       <td>1.000 (+/- 0.000)</td>
       <td>0.501 (+/- 0.025)</td>
@@ -356,7 +355,7 @@
       <th></th>
       <th>Random Forest Best n_estimators</th>
       <th>Random Forest Best max_depth</th>
-      <th>Random Forest Best Validation Score</th>
+      <th>Random Forest Best Score</th>
       <th>Random Forest Roc_Auc Test Score</th>
     </tr>
   </thead>
@@ -470,7 +469,7 @@
 </div>
 <div class="section" id="limitations-future-work">
 <h3>Limitations &amp; Future Work<a class="headerlink" href="#limitations-future-work" title="Permalink to this headline">¶</a></h3>
-<p>Firstly, we suggest to gather more wine samples from lower quality class and higher quality class to fix the severe class imbalance issue in the dataset so that it could be used to classify the wine qualities properly in the real world. Additionally, to improve the model performance in future, we could carry out feature engineering such as adding polynomial features or creating new features under domain expertise, and perform feature elimination to remove unimportant features.</p>
+<p>Firstly, we suggest gathering more wine samples from lower quality class and higher quality class to fix the severe class imbalance issue in the dataset so that it could be used to classify the wine qualities properly in the real world. Additionally, to improve the model performance in future, we could carry out feature engineering such as adding polynomial features or creating new features under domain expertise, and perform feature elimination to remove unimportant features. It may also be worth diversifying the wine types to other regions and varietals.</p>
 </div>
 </div>
 <span id="document-bibliography"></span><div class="tex2jax_ignore mathjax_ignore section" id="bibliography">
