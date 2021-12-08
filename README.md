@@ -15,6 +15,19 @@ The data sets were sampled from the red and white _vinho verde_ wines from the N
 [The final report can be found here](https://ubc-mds.github.io/DSCI_522_group09_Wine_Quality_Predictor/report_summary.html).
 
 ## Usage
+There are two suggested ways to run this analysis:
+
+**1. Using docker**  
+To replicate the analysis, install Docker. Then clone this GitHub repository and run the following command at the command line/terminal from the root directory of this project:
+```python
+
+```
+To reset the repo to a clean state, with no intermediate or results files, run the following command at the command line/terminal from the root directory of this project:
+```python
+
+```
+
+**2. Without using Docker**  
 To replicate the analysis, clone this GitHub repository, install the [dependencies](#dependencies) listed below, and run the following commands at the command line/terminal from the root directory of this project:
 
 ```python
