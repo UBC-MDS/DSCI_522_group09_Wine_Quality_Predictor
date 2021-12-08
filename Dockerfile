@@ -1,10 +1,9 @@
-# Copyright (c) Jupyter Development Team.
-# Distributed under the terms of the Modified BSD License.
+# Copyright (c) 
 ARG OWNER=jupyter
 ARG BASE_CONTAINER=$OWNER/minimal-notebook
 FROM $BASE_CONTAINER
 
-LABEL maintainer="Jupyter Project <jupyter@googlegroups.com>"
+LABEL maintainer="MDS 2021 Group 09"
 
 USER root
 
@@ -16,36 +15,19 @@ RUN apt-get update --yes && \
 USER ${NB_UID}
 
 # Install Python 3 packages
-RUN mamba install --quiet --yes \
-    'altair' \
-    'beautifulsoup4' \
-    'bokeh' \
-    'bottleneck' \
-    'cloudpickle' \
-    'conda-forge::blas=*=openblas' \
-    'cython' \
-    'dask' \
-    'dill' \
-    'h5py' \
-    'ipympl'\
-    'ipywidgets' \
-    'matplotlib-base' \
-    'numba' \
-    'numexpr' \
-    'pandas' \
-    'patsy' \
-    'protobuf' \
-    'pytables' \
-    'scikit-image' \
-    'scikit-learn' \
-    'scipy' \
-    'seaborn' \
-    'sqlalchemy' \
-    'statsmodels' \
-    'sympy' \
-    'widgetsnbextension'\
-    'xlrd' && \
-    mamba clean --all -f -y && \
+RUN conda install --quiet --yes \
+    'altair=4.1.*' \
+    'altair_viewer=0.4.*' \
+    'altair_saver=0.5.*' \
+    'altair_data_server=0.4.*' \
+    'docopt=0.6.*' \
+    'ipykernel=6.5.*' \
+    'jupyter-book=0.12.*' \
+    'matplotlib=3.5.*' \
+    'pandas=1.3.*' \
+    'scikit-learn=1.0.*' \
+  && \
+    conda clean --all -f -y && \
     fix-permissions "${CONDA_DIR}" && \
     fix-permissions "/home/${NB_USER}"
 
