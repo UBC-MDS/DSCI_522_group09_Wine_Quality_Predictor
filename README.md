@@ -1,11 +1,11 @@
-# Wine_Quality_Predictor
+# Wine Quality Predictor
 
 - authors: Gabriel Fairbrother, Paniz Fazlali, Luming Yang, Wanying Ye; The University of British Columbia, Master of Data Science.
 
 A data analysis (machine learning) project for MDS DSCI522 (Data Science Workflows) from Group 09.
 
 ## About
-In this project, we attempt to answer the question that can we use a machine learning model to predict the human perceived quality of a wine using its physical and chemical attributes? Moreover which of these attribute contributes most to that perceived quality? We compared results from 3 different machine learning models (SVC with Linear Kernel, Logistic Regression, and Random Forest) and selected the best performer (Random Forest). With Random Forest we achieved an ROC/AUC score of 0.86. Further, we found that Alcohol, Density and Volatile Acidity were the top contributors to higher quality scores.
+In this project, we attempt to answer the question: Can we use a machine learning model to predict the human perceived quality of a wine using its physical and chemical attributes? Moreover which of these attribute contributes most to that perceived quality? We compared results from 3 different machine learning models (SVC with Linear Kernel, Logistic Regression, and Random Forest) and selected the best performer (Random Forest). With Random Forest we achieved an ROC/AUC test score of 0.685. Further, we found that Alcohol, Density and Volatile Acidity were the top contributors to higher quality scores. These are promising results and have application in the industry. Though the selected model performed reasonably well, a significant gap between our cross-validation and test set results means there is room for improvement.
 
 
 The data sets were sampled from the red and white _vinho verde_ wines from the North of Portugal, created by P. Cortez, A. Cerdeira, F. Almeida, T. Matos and J. Reis (2009). The data sets were sourced from the UC Irvine Machine Learning Repository and can be found [here](https://archive-beta.ics.uci.edu/ml/datasets/wine+quality). One data set is for the red wine, and the other is for the white wine, and both data sets have the same features and target columns. Each row represents a wine sample with its physicochemical properties such as fixed acidity, volatile acidity, etc. The target is a score (integer) ranging from 3 (very bad) to 9 (excellent) that represents the quality of the wine. 
