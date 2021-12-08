@@ -1,4 +1,4 @@
-# Wine_Quality_Predictor
+# Wine Quality Predictor
 
 - authors: Gabriel Fairbrother, Paniz Fazlali, Luming Yang, Wanying Ye; The University of British Columbia, Master of Data Science.
 
