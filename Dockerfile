@@ -1,4 +1,4 @@
-# Copyright (c) 
+# Copyright Group 9
 ARG OWNER=jupyter
 ARG BASE_CONTAINER=$OWNER/minimal-notebook
 FROM $BASE_CONTAINER
@@ -7,12 +7,14 @@ LABEL maintainer="MDS 2021 Group 09"
 
 USER root
 
-# ffmpeg for matplotlib anim & dvipng+cm-super for latex labels
+# ffmpeg for matplotlib anim & dvipng+cm-super for latex labels,
 RUN apt-get update --yes && \
     apt-get install --yes --no-install-recommends ffmpeg dvipng cm-super && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
 
-USER wine
+#Install make
+RUN apt-get update && apt-get install make
+USER ${NB_UID}
 
 # Install Python 3 packages
 RUN conda install --quiet --yes \
