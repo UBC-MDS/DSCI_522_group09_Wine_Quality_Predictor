@@ -69,6 +69,9 @@ Python 3.10.0 and Python packages:
 
 GNU Make 3.81
 
+Dependency diagram of the Makefile is showing below:
+![Dependency diagram](Makefile.png)
+
 ## References
 
 [References can be found here](https://htmlpreview.github.io/?https://github.com/UBC-MDS/DSCI_522_group09_Wine_Quality_Predictor/blob/main/docs/wine_quality_predictor_report/_build/singlehtml/report_summary.html#document-bibliography).
