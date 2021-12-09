@@ -17,7 +17,7 @@ The data sets were sampled from the red and white _vinho verde_ wines from the N
 ## Usage
 There are two suggested ways to run this analysis:
 
-**1. Using docker**  
+**1. Using Docker**  
 To replicate the analysis, install Docker. Then clone this GitHub repository and run the following command at the command line/terminal from the root directory of this project:
 ```python
 
