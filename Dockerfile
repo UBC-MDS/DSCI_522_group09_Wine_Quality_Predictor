@@ -1,4 +1,4 @@
-# Copyright
+# Copyright Group 9
 ARG OWNER=jupyter
 ARG BASE_CONTAINER=$OWNER/minimal-notebook
 FROM $BASE_CONTAINER
