@@ -12,7 +12,7 @@ RUN apt-get update --yes && \
     apt-get install --yes --no-install-recommends ffmpeg dvipng cm-super && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
 
-USER wine
+USER NB_USER
 
 # Install Python 3 packages
 RUN conda install --quiet --yes \
