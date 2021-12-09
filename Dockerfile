@@ -7,10 +7,13 @@ LABEL maintainer="MDS 2021 Group 09"
 
 USER root
 
-# ffmpeg for matplotlib anim & dvipng+cm-super for latex labels
+# ffmpeg for matplotlib anim & dvipng+cm-super for latex labels,
 RUN apt-get update --yes && \
     apt-get install --yes --no-install-recommends ffmpeg dvipng cm-super && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
+
+
+RUN apt-get update && apt-get install make
 
 USER ${NB_UID}
 
