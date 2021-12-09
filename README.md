@@ -12,7 +12,7 @@ The data sets were sampled from the red and white _vinho verde_ wines from the N
 
 ## Report
 
-[The final report can be found here](https://ubc-mds.github.io/DSCI_522_group09_Wine_Quality_Predictor/report_summary.html).
+[The final report can be found here](https://ubc-mds.github.io/DSCI_522_group09_Wine_Quality_Predictor/index.html).
 
 ## Usage
 There are two suggested ways to run this analysis:
@@ -68,6 +68,9 @@ Python 3.10.0 and Python packages:
 - docopt==0.6.2
 
 GNU Make 3.81
+
+Dependency diagram of the Makefile is showing below:
+![Dependency diagram](Makefile.png)
 
 ## References
 
