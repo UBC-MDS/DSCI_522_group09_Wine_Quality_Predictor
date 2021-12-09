@@ -20,8 +20,7 @@ There are two suggested ways to run this analysis:
 **1. Using Docker**  
 To replicate the analysis, install Docker. Then clone this GitHub repository and run the following command at the command line/terminal from the root directory of this project:
 ```python
-UNDER CONSTRUCTION: docker run --rm -it -v C:/Users/gfair/MDS/Labs/522/UBC-MDS-2021_522_Wine_Quality_Predictor:/home/jovyan/ gfairbro/wine
-_quality_predictor make all
+UNDER CONSTRUCTION: docker run --rm -it -v <FULL_LOCAL_PATH_TO_REPO>:/home/jovyan/ gfairbro/wine_quality_predictor make all
 ```
 To reset the repo to a clean state, with no intermediate or results files, run the following command at the command line/terminal from the root directory of this project:
 ```python
