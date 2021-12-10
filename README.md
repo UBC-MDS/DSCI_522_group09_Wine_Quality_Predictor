@@ -74,4 +74,4 @@ Dependency diagram of the Makefile is showing below:
 
 ## References
 
-[References can be found here](https://htmlpreview.github.io/?https://github.com/UBC-MDS/DSCI_522_group09_Wine_Quality_Predictor/blob/main/docs/wine_quality_predictor_report/_build/singlehtml/report_summary.html#document-bibliography).
+[References can be found here](https://ubc-mds.github.io/DSCI_522_group09_Wine_Quality_Predictor/index.html#document-bibliography).
