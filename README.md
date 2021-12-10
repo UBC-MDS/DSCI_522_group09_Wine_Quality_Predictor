@@ -20,11 +20,11 @@ There are two suggested ways to run this analysis:
 **1. Using Docker**  
 To replicate the analysis, install Docker. Then clone this GitHub repository and run the following command at the command line/terminal from the root directory of this project:
 ```python
-  
+docker run --rm --platform linux/amd64 -v /$(pwd):/home/jovyan/ gfairbro/wine_quality_predictor make all
 ```
 To reset the repo to a clean state, with no intermediate or results files, run the following command at the command line/terminal from the root directory of this project:
 ```python
-docker run --rm -v <FULL_LOCAL_PATH_TO_REPO>:/home/jovyan/ gfairbro/wine_quality_predictor make clean
+docker run --rm -v /$(pwd):/home/jovyan/ gfairbro/wine_quality_predictor make clean
 ```
 
 **2. Without using Docker**  
