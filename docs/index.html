@@ -217,11 +217,28 @@
 <div class="section" id="data">
 <h3>Data<a class="headerlink" href="#data" title="Permalink to this headline">¶</a></h3>
 <p>The data sets used in this project were sampled from the red and white <em>vinho verde</em> wines from the North of Portugal, created by Paulo Cortez, António Cerdeira, Fernando Almeida, Telmo Matos, and José Reis <span id="id1">[<a class="reference internal" href="index.html#id2">Cortez <em>et al.</em>, 2009</a>]</span>. They were sourced from the UC Irvine Machine Learning Repository <span id="id2">[<a class="reference internal" href="index.html#id5">Dua and Graff, 2017</a>]</span> and can be found <a class="reference external" href="https://archive-beta.ics.uci.edu/ml/datasets/wine+quality">here</a>. One data set is for the red wine, and the other is for the white wine, and both data sets have the same features and target columns. We combined these columns and created a new feature to indicate colour. Each row represents a wine sample with its physicochemical properties such as fixed acidity, volatile acidity, etc. The target is a score (integer but we treat as a classification task) ranging from 3 (very bad) to 9 (excellent) that represents the quality of the wine.</p>
+<p>Here is a breakdown of the number of examples in the train and test set:</p>
+<table class="colwidths-auto docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Train Set Size</p></th>
+<th class="head"><p>Test Set Size</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>4547</p></td>
+<td><p>1950</p></td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="section" id="analysis">
 <h3>Analysis<a class="headerlink" href="#analysis" title="Permalink to this headline">¶</a></h3>
 <p>Three classification models were attempted and assessed to predict the quality score of a wine: <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html">Logistic Regression</a>, <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.svm.SVC.html">Support Vector Machine with linear kernel (SVC linear)</a> and <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html">Random Forest Classification</a>. These candidates were selected based on their common intriguing attributes such as high interpretability and giving handy measurements on feature importance. All numeric features in the original datasets were included and scaled, with the type of wine (<em>i.e.</em> white or red) as an added binary feature.</p>
-<p>During the EDA stage, we discovered the data set has severe class-imbalance issue. Our target is multi-class in terms of quality scores ranging from “3” to “9”. However, the classes “3” and “9” were extremely under-populated. Therefore, we decided to combine the lowest two classes (“3” and “4”) and the highest two classes (“8” and “9”) to mitigate the severe class imbalance problem. By doing so, the number of examples in each class is distributed more evenly. The final quality score classes are “&lt;=4”, “5”, “6”, “7” and “&gt;=8”. The best wines will be classified as “&gt;=8”, and the poorest wines will be classified as “&lt;=4”.</p>
+<p>During the EDA stage, we discovered the data set has severe class-imbalance issue as shown in (<strong><em>Fig. 1</em></strong>). Our target is multi-class in terms of quality scores ranging from “3” to “9”. However, the classes “3” and “9” were extremely under-populated. Therefore, we decided to combine the lowest two classes (“3” and “4”) and the highest two classes (“8” and “9”) to mitigate the severe class imbalance problem. By doing so, the number of examples in each class is distributed more evenly. The final quality score classes are “&lt;=4”, “5”, “6”, “7” and “&gt;=8”. The best wines will be classified as “&gt;=8”, and the poorest wines will be classified as “&lt;=4”.</p>
+<div class="figure align-default" id="id11">
+<img alt="_images/figure_1_class_imbalance.png" src="_images/figure_1_class_imbalance.png" />
+<p class="caption"><span class="caption-number">Fig. 1 </span><span class="caption-text">Class imbalance in original data.</span><a class="headerlink" href="#id11" title="Permalink to this image">¶</a></p>
+</div>
 <p>We also chose the scoring metrics to be f-1 macro score, Receiver Operating Characteristic (One vs. Rest) Area Under the Curve, and Receiver Operating Characteristic (One vs. One) Area Under the Curve.</p>
 <p>For each algorithm, the default hyperparameters were used first to train the model, and then the 5-fold cross-validation scores were compared across the models. Hyperparameter optimization was carried out on the algorithm with the best cross-validation score. The resulting model with the optimized hyperparameters was the solution to this prediction task. We then assess its performance on test data (<em>i.e.</em> unseen examples).</p>
 <p>The computing language used in this project is Python <span id="id3">[<a class="reference internal" href="index.html#id7">Perez <em>et al.</em>, 2011</a>]</span>. Packages used in EDA and machine learning analysis include: altair <span id="id4">[<a class="reference internal" href="index.html#id6">VanderPlas <em>et al.</em>, 2018</a>]</span>, docopt <span id="id5">[<a class="reference internal" href="index.html#id8">de Jonge, 2020</a>]</span>, scikit-learn <span id="id6">[<a class="reference internal" href="index.html#id9">Pedregosa <em>et al.</em>, 2011</a>]</span>, matplotlib <span id="id7">[<a class="reference internal" href="index.html#id10">Hunter, 2007</a>]</span>, numpy <span id="id8">[<a class="reference internal" href="index.html#id11">Harris <em>et al.</em>, 2020</a>]</span>, pandas <span id="id9">[<a class="reference internal" href="index.html#id12">McKinney and others, 2010</a>]</span>, pickle <span id="id10">[<a class="reference internal" href="index.html#id13">Van Rossum, 2020</a>]</span>.</p>
@@ -229,16 +246,12 @@
 </div>
 <span id="document-report_results"></span><div class="tex2jax_ignore mathjax_ignore section" id="results-discussion">
 <h2>Results &amp; Discussion<a class="headerlink" href="#results-discussion" title="Permalink to this headline">¶</a></h2>
-<p>To see whether there is some relation between different features and also to have an idea on whether some features are more important in prediction, we explored the correlation plot for all numeric features and the wine quality score. As shown in <strong><em>Fig. 1</em></strong>, several features have strong correlation. For example, <code class="docutils literal notranslate"><span class="pre">total</span> <span class="pre">sulfur</span> <span class="pre">dioxide</span></code> and <code class="docutils literal notranslate"><span class="pre">free</span> <span class="pre">sulfur</span> <span class="pre">dioxide</span></code> are strongly positively correlated, and <code class="docutils literal notranslate"><span class="pre">alcohol</span></code> and <code class="docutils literal notranslate"><span class="pre">density</span></code> are strongly negatively correlated. Additionally, the high correlation between the target <code class="docutils literal notranslate"><span class="pre">quality</span></code> and some features (<em>i.e.</em> <code class="docutils literal notranslate"><span class="pre">alcohol</span></code>, <code class="docutils literal notranslate"><span class="pre">density</span></code>, <code class="docutils literal notranslate"><span class="pre">chlorides</span></code>, <code class="docutils literal notranslate"><span class="pre">volatile</span> <span class="pre">acidity</span></code>) imply that these features might be important for prediction.</p>
+<p>To see whether there is some relation between different features and also to have an idea on whether some features are more important in prediction, we explored the correlation plot for all numeric features and the wine quality score. As shown in <strong><em>Fig. 2</em></strong>, several features have strong correlation. For example, <code class="docutils literal notranslate"><span class="pre">total</span> <span class="pre">sulfur</span> <span class="pre">dioxide</span></code> and <code class="docutils literal notranslate"><span class="pre">free</span> <span class="pre">sulfur</span> <span class="pre">dioxide</span></code> are strongly positively correlated, and <code class="docutils literal notranslate"><span class="pre">alcohol</span></code> and <code class="docutils literal notranslate"><span class="pre">density</span></code> are strongly negatively correlated. Additionally, the high correlation between the target <code class="docutils literal notranslate"><span class="pre">quality</span></code> and some features (<em>i.e.</em> <code class="docutils literal notranslate"><span class="pre">alcohol</span></code>, <code class="docutils literal notranslate"><span class="pre">density</span></code>, <code class="docutils literal notranslate"><span class="pre">chlorides</span></code>, <code class="docutils literal notranslate"><span class="pre">volatile</span> <span class="pre">acidity</span></code>) imply that these features might be important for prediction.</p>
 <div class="figure align-default" id="id1">
 <img alt="_images/figure_4_correlation_plot.png" src="_images/figure_4_correlation_plot.png" />
-<p class="caption"><span class="caption-number">Fig. 1 </span><span class="caption-text">Correlation plot for all numeric features (excluding wine type) and quality score.</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 2 </span><span class="caption-text">Correlation plot for all numeric features (excluding wine type) and quality score.</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
 </div>
-<p>In order to classify the wine qualities, we chose to use three different models, including support vector machine with linear kernel, logistic regression, and random forest. We carried out 5-fold cross validation on all three models to find the best performing model based on the cross validation scores. During the EDA stage of the project, we observed class imbalance in our data set (<strong><em>Fig. 2</em></strong>). Therefore, we decided to use several scoring metrics such as f1 score, Receiver Operating Characteristic - One versus Rest - Area under the curve (ROC-AUC-OVR), and Receiver Operating Characteristic - One versus One - Area under the curve (ROC-AUC-OVO).</p>
-<div class="figure align-default" id="id2">
-<img alt="_images/figure_1_class_imbalance.png" src="_images/figure_1_class_imbalance.png" />
-<p class="caption"><span class="caption-number">Fig. 2 </span><span class="caption-text">Class imbalance in original data.</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
-</div>
+<p>In order to classify the wine qualities, we chose to use three different models, including support vector machine with linear kernel, logistic regression, and random forest. We carried out 5-fold cross validation on all three models to find the best performing model based on the cross validation scores. During the EDA stage of the project, we observed class imbalance in our data set. Therefore, we decided to use several scoring metrics such as f1 score, Receiver Operating Characteristic - One versus Rest - Area under the curve (ROC-AUC-OVR), and Receiver Operating Characteristic - One versus One - Area under the curve (ROC-AUC-OVO).</p>
 <p>Based on the cross validation results shown in <strong><em>Table. 1</em></strong>, the random forest model performed the best across three models. Therefore, the random forest model was selected for downstream hyperparamater tuning.</p>
 <p><strong><em>Table. 1</em></strong> Summary on f1 macro scores, ROC AUC (OVR) and ROC AUC (OVO) of dummy classifier, SVC, logistic regression, and random forest with default hyperparameters.</p>
 <div class="cell tag_hide-input docutils container">
@@ -282,8 +295,8 @@
   <tbody>
     <tr>
       <th>Dummy</th>
-      <td>0.008 (+/- 0.008)</td>
-      <td>0.026 (+/- 0.006)</td>
+      <td>0.009 (+/- 0.001)</td>
+      <td>0.027 (+/- 0.001)</td>
       <td>0.333 (+/- 0.013)</td>
       <td>0.333 (+/- 0.004)</td>
       <td>0.193 (+/- 0.011)</td>
@@ -295,8 +308,8 @@
     </tr>
     <tr>
       <th>SVC</th>
-      <td>2.883 (+/- 0.048)</td>
-      <td>0.182 (+/- 0.012)</td>
+      <td>3.263 (+/- 0.156)</td>
+      <td>0.216 (+/- 0.014)</td>
       <td>0.532 (+/- 0.017)</td>
       <td>0.539 (+/- 0.004)</td>
       <td>0.241 (+/- 0.008)</td>
@@ -308,21 +321,21 @@
     </tr>
     <tr>
       <th>Logistic Regression</th>
-      <td>0.196 (+/- 0.023)</td>
-      <td>0.024 (+/- 0.002)</td>
+      <td>0.210 (+/- 0.021)</td>
+      <td>0.026 (+/- 0.003)</td>
       <td>0.546 (+/- 0.014)</td>
       <td>0.550 (+/- 0.004)</td>
       <td>0.325 (+/- 0.012)</td>
       <td>0.330 (+/- 0.005)</td>
       <td>0.764 (+/- 0.016)</td>
-      <td>0.778 (+/- 0.003)</td>
+      <td>0.777 (+/- 0.003)</td>
       <td>0.759 (+/- 0.014)</td>
       <td>0.772 (+/- 0.003)</td>
     </tr>
     <tr>
       <th>Random Forest</th>
-      <td>0.508 (+/- 0.007)</td>
-      <td>0.065 (+/- 0.003)</td>
+      <td>0.660 (+/- 0.027)</td>
+      <td>0.080 (+/- 0.006)</td>
       <td>0.652 (+/- 0.012)</td>
       <td>1.000 (+/- 0.000)</td>
       <td>0.501 (+/- 0.025)</td>
@@ -365,7 +378,7 @@
       <th></th>
       <th>Random Forest Best n_estimators</th>
       <th>Random Forest Best max_depth</th>
-      <th>Random Forest Best Score</th>
+      <th>Random Forest Best Validation Score</th>
       <th>Random Forest Roc_Auc Test Score</th>
     </tr>
   </thead>
@@ -382,9 +395,9 @@
 </div></div></div>
 </div>
 <p>In addition, we plotted the confusion matrix of model performance on test data to get insights of how our model performed. As seen in <strong><em>Fig. 3</em></strong>, our model was mostly confused among the quality classes of “5”, “6” and “7”. This is probably because the features do not have well separated distributions with respect to these classes. This is in line with what we observed in the preliminary exploratory data analysis. Although the model did not perform great on this classification task, our main task does not include any sensitive prediction. Therefore, we are relatively confident to share the results of our model.</p>
-<div class="figure align-default" id="id3">
+<div class="figure align-default" id="id2">
 <img alt="_images/test_cm.png" src="_images/test_cm.png" />
-<p class="caption"><span class="caption-number">Fig. 3 </span><span class="caption-text">Confusion matrix on test data.</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 3 </span><span class="caption-text">Confusion matrix on test data.</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
 </div>
 <p>Among all the features that our data set had, <code class="docutils literal notranslate"><span class="pre">alcohol</span></code>, <code class="docutils literal notranslate"><span class="pre">density</span></code> and <code class="docutils literal notranslate"><span class="pre">volatile</span> <span class="pre">acidity</span></code> were the top 3 important features (see <strong><em>Table. 3</em></strong>). On the other hand, <code class="docutils literal notranslate"><span class="pre">fixed</span> <span class="pre">acidity</span></code>, <code class="docutils literal notranslate"><span class="pre">type_white</span></code> and <code class="docutils literal notranslate"><span class="pre">type_red</span></code> were the least important features. This result is also consistent with our initial exploratory data analysis.</p>
 <p><strong><em>Table. 3</em></strong> The feature importances of the optimized random forest model.</p>

@@ -5,7 +5,11 @@
 # Usage:
 # make all
 
-all : docs/wine_quality_predictor_report/_build/singlehtml/index.html 
+all : docs/wine_quality_predictor_report/index.html
+#moves the report file to the appropriate place and deletes the build
+	\cp -rf docs/wine_quality_predictor_report/_build/singlehtml/* docs/
+	rm -rf docs/wine_quality_predictor_report/_build
+	echo "Go to docs/index.html for final report"
 
 # downloading data
 data/raw/winequality-red.csv : src/download_data.py
@@ -27,7 +31,7 @@ results/cross_val_results.csv results/feature_importances.csv results/random_for
 	python src/machine_learning.py --input_path_train="data/processed/train_df.csv" --input_path_test="data/processed/test_df.csv" --output_dir="results"
 
 # final report
-docs/wine_quality_predictor_report/_build/singlehtml/index.html : results/figure_1_class_imbalance.png results/figure_4_correlation_plot.png results/cross_val_results.csv results/feature_importances.csv results/random_forest_results.csv results/test_cm.png
+docs/wine_quality_predictor_report/index.html : results/figure_1_class_imbalance.png results/figure_4_correlation_plot.png results/cross_val_results.csv results/feature_importances.csv results/random_forest_results.csv results/test_cm.png
 	jupyter-book build docs/wine_quality_predictor_report --builder singlehtml 
 
 clean :
