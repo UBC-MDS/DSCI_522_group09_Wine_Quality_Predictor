@@ -108,7 +108,7 @@ def main(input_path_train, input_path_test, output_dir):
         rf,
         param_distributions=param_grid_rf,
         return_train_score=True,
-        n_jobs=-1,
+        n_jobs=2,
         n_iter=30,
         cv=5,
         random_state=123,
@@ -201,7 +201,7 @@ def mean_std_cross_val_scores(model, X_train, y_train, **kwargs):
         pandas Series with mean scores from cross_validation
     """
 
-    scores = cross_validate(model, X_train, y_train, **kwargs)
+    scores = cross_validate(model, X_train, y_train, **kwargs, n_jobs=2)
 
     mean_scores = pd.DataFrame(scores).mean()
     std_scores = pd.DataFrame(scores).std()
