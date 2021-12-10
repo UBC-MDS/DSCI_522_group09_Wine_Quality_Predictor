@@ -104,33 +104,20 @@ def main(input_data, output_dir):
                    ))
 
     # export figures
-    ## figure_1_class_imbalance.png
-    try:
-        figure_1.save(f"{output_dir}/figure_1_class_imbalance.png", scale_factor=3)
-    except:
-        os.makedirs(os.path.dirname(f"{output_dir}"))
-        figure_1.save(f"{output_dir}/figure_1_class_imbalance.png", scale_factor=3)
-
-    ## figure_2_red_and_white_quantities.png
-    try:
-        figure_2.save(f"{output_dir}/figure_2_red_and_white_quantities.png", scale_factor=3)
-    except:
-        os.makedirs(os.path.dirname(f"{output_dir}"))
-        figure_2.save(f"{output_dir}/figure_2_red_and_white_quantities.png", scale_factor=3)
-
-    ## figure_3_distribution_of_features.png
-    try:
-        figure_3.save(f"{output_dir}/figure_3_distribution_of_features.png", scale_factor=3)
-    except:
-        os.makedirs(os.path.dirname(f"{output_dir}"))
-        figure_3.save(f"{output_dir}/figure_3_distribution_of_features.png", scale_factor=3)
-    
-    ## figure_4_correlation_plot.png
-    try:
-        figure_4.save(f"{output_dir}/figure_4_correlation_plot.png", scale_factor=3)
-    except:
-        os.makedirs(os.path.dirname(f"{output_dir}"))
-        figure_4.save(f"{output_dir}/figure_4_correlation_plot.png", scale_factor=3)
+    if not os.path.exists(output_dir):
+        os.makedirs(output_dir)
+    output_figures_lst = [figure_1, figure_2, figure_3, figure_4]
+    output_figures_name = [
+        "figure_1_class_imbalance.png",
+        "figure_2_red_and_white_quantities.png",
+        "figure_3_distribution_of_features.png",
+        "figure_4_correlation_plot.png",
+    ]
+    for i in range(len(output_figures_lst)):
+        if not os.path.exists(f"{output_dir}/" + output_figures_name[i]):
+            output_figures_lst[i].save(
+                f"{output_dir}/" + output_figures_name[i], scale_factor=3
+            )
 
 
 if __name__ == "__main__":
