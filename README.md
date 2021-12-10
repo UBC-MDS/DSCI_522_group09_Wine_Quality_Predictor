@@ -15,7 +15,7 @@ The data sets were sampled from the red and white _vinho verde_ wines from the N
 [The final report can be found here](https://ubc-mds.github.io/DSCI_522_group09_Wine_Quality_Predictor/index.html).
 
 ## Usage
-There are two suggested ways to run this analysis:
+There are two suggested ways to run this analysis. The computation time is about 15 mins.
 
 **1. Using Docker**  
 To replicate the analysis, install Docker. Then clone this GitHub repository and run the following command at the command line/terminal from the root directory of this project:
