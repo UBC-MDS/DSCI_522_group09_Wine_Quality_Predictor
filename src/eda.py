@@ -36,40 +36,35 @@ def main(input_data, output_dir):
     summary = train_df.groupby("quality").agg(["mean", "std"]).round(2).reset_index()
 
     # export tables
-    ## table_1_combined_dataset.csv
-    try:
-        train_df.head().to_csv(f"{output_dir}/table_1_combined_dataset.csv")
-    except:
-        os.makedirs(os.path.dirname(f"{output_dir}"))
-        train_df.head().to_csv(f"{output_dir}/table_1_combined_dataset.csv")
+    if not os.path.exists(output_dir):
+        os.makedirs(output_dir)
+    output_tables_lst = [train_df.head(), counts, summary]
+    output_tables_name = [
+        "table_1_combined_dataset.csv",
+        "table_2_observations_count.csv",
+        "table_3_summary.csv",
+    ]
+    for i in range(len(output_tables_lst)):
+        if not os.path.exists(f"{output_dir}/" + output_tables_name[i]):
+            output_tables_lst[i].to_csv(f"{output_dir}/" + output_tables_name[i])
 
-    ## table_2_observations_count.csv
-    try:
-        counts.to_csv(f"{output_dir}/table_2_observations_count.csv")
-    except:
-        os.makedirs(os.path.dirname(f"{output_dir}"))
-        counts.to_csv(f"{output_dir}/table_2_observations_count.csv")
-
-    ## table_3_summary.csv
-    try:
-        summary.to_csv(f"{output_dir}/table_3_summary.csv", index=False)
-    except:
-        os.makedirs(os.path.dirname(f"{output_dir}"))
-        summary.to_csv(f"{output_dir}/table_3_summary.csv", index=False)
 
     # make figures
+    ## target distribution bar plot
     figure_1 = alt.Chart(train_df, title="Class Imbalance of Wine Quality").mark_bar().encode(
         alt.X("quality", title="Quality", axis=alt.Axis(labelAngle=0)),
         alt.Y("count()", title="Counts"),
         alt.Color("quality", title="Quality"),
     ).properties(width=350, height=350)
 
+    ## target distribution bar plot for red and white wines 
     figure_2 = alt.Chart(train_df, title="Red and White Wine Quantities").mark_bar(opacity=0.5).encode(
     alt.X("quality", title="Quality", axis=alt.Axis(labelAngle=0)),
     alt.Y("count()", title="Counts", stack=False),
     alt.Color("type", title="Wine type"),
     ).properties(width=350, height=350)
 
+    ## distribution of features
     figure_3 = alt.Chart(train_df).mark_line(interpolate="step").encode(
     alt.X(alt.repeat(), type="quantitative", bin=alt.Bin(maxbins=40)),
     alt.Y("count()", title="Counts"),
@@ -91,13 +86,13 @@ def main(input_data, output_dir):
     columns=3,
     )
     
-    # make the correlation plot
+    ## correlation plot including all numeric features and the target
     train_df_int = train_df.copy()
     train_df_int["quality"] = train_df_int["quality"].map(int)
     corr_df = train_df_int.select_dtypes('number').corr('spearman').stack().reset_index(name='corr')
     corr_df.loc[corr_df['corr'] == 1, 'corr'] = 0  # Remove diagonal
     corr_df['abs'] = corr_df['corr'].abs()
-    # Make the target appear at last in correlation plot
+    ### make the target appear at last in correlation plot
     variable_order = train_df.select_dtypes('number').columns.to_list()
     figure_4 = alt.Chart(corr_df, title="Correlation plot").mark_circle().encode(
     x=alt.X('level_0', title="", sort=variable_order),
