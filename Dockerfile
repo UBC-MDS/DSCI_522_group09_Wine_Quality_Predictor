@@ -1,3 +1,6 @@
+# Written by Gabe Fairbrother, adapted from the jupyter team scipy dockerfile. 
+# This file builds a docker container with he dependencies for the
+# Wine_Quality_Predictor project 
 FROM jupyter/minimal-notebook
 
 LABEL maintainer="MDS 2021 Group 09"
