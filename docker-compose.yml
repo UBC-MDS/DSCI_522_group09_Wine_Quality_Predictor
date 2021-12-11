@@ -1,0 +1,5 @@
+services:
+  analysis-env:
+    image: gfairbro/wine_quality_predictor
+    volumes:
+      - .:/home/jovyan/
