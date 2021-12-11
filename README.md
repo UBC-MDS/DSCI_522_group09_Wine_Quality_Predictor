@@ -15,16 +15,16 @@ The data sets were sampled from the red and white _vinho verde_ wines from the N
 [The final report can be found here](https://ubc-mds.github.io/DSCI_522_group09_Wine_Quality_Predictor/index.html).
 
 ## Usage
-There are two suggested ways to run this analysis:
+There are two suggested ways to run this analysis. The computation time is about 15 mins.
 
 **1. Using Docker**  
 To replicate the analysis, install Docker. Then clone this GitHub repository and run the following command at the command line/terminal from the root directory of this project:
 ```python
-  
+docker run --rm -v /$(pwd):/home/jovyan/ gfairbro/wine_quality_predictor make all
 ```
 To reset the repo to a clean state, with no intermediate or results files, run the following command at the command line/terminal from the root directory of this project:
 ```python
-docker run --rm -v <FULL_LOCAL_PATH_TO_REPO>:/home/jovyan/ gfairbro/wine_quality_predictor make clean
+docker run --rm -v /$(pwd):/home/jovyan/ gfairbro/wine_quality_predictor make clean
 ```
 
 **2. Without using Docker**  
@@ -74,4 +74,4 @@ Dependency diagram of the Makefile is showing below:
 
 ## References
 
-[References can be found here](https://htmlpreview.github.io/?https://github.com/UBC-MDS/DSCI_522_group09_Wine_Quality_Predictor/blob/main/docs/wine_quality_predictor_report/_build/singlehtml/report_summary.html#document-bibliography).
+[References can be found here](https://ubc-mds.github.io/DSCI_522_group09_Wine_Quality_Predictor/index.html#document-bibliography).
