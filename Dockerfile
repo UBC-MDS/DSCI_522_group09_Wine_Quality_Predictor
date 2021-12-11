@@ -1,7 +1,7 @@
-# Copyright Group 9
-ARG OWNER=jupyter
-ARG BASE_CONTAINER=$OWNER/minimal-notebook
-FROM $BASE_CONTAINER
+# Written by Gabe Fairbrother, adapted from the jupyter team scipy dockerfile. 
+# This file builds a docker container with he dependencies for the
+# Wine_Quality_Predictor project 
+FROM jupyter/minimal-notebook
 
 LABEL maintainer="MDS 2021 Group 09"
 
@@ -12,7 +12,7 @@ RUN apt-get update --yes && \
     apt-get install --yes --no-install-recommends ffmpeg dvipng cm-super && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
 
-
+# install make 
 RUN apt-get update && apt-get install make
 
 USER ${NB_UID}
